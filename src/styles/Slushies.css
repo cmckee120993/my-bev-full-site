@@ -1,0 +1,74 @@
+/* remove universal background */
+.slushy-title-div, .slushy-title, .slushy-header-image, .slushy-slideshow, .each-slide-effect, .slushy-image, .react-slideshow-container, .react-slideshow-wrapper,  #root .react-slideshow-container svg, #root div, .other-products {
+    background: none;
+}
+
+/* slushy styling */
+
+/* slushy title */
+
+.slushy-title-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slushy-title {
+    color: var(--primary);
+    font-family: 'Dokdo', cursive;
+    font-size: 30px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.slushy-header-image {
+    width: 50%;
+    margin: 25px;
+}
+
+/* slideshow styling */
+
+.each-slide-effect {
+    width: 100%;
+}
+
+.slushy-image {
+    height: 300px;
+}
+
+.other-products {
+    color: var(--primary);
+    font-family: 'Gloria Hallelujah', cursive;
+    text-align: center;
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    .slushy-header-image {
+        width: 40%;
+    }
+    .slushy-title {
+        font-size: 50px;
+    }
+
+    .slushy-image {
+        height: 500px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .slushy-image {
+        height: 1000px;
+    }
+    .slushy-header-image {
+        width: 20%;
+    }
+    .slushy-title-div {
+        margin-top: -20px;
+        margin-bottom: -75px;
+        justify-content: center;
+    }
+    .other-products {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,71 @@
+.header-image {
+    width: 365px;
+    height: 223px;
+    margin-bottom: -5px;
+    background: none;
+}
+
+.header-border {
+    width: 100%;
+    padding-bottom: 25px;
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+} 
+
+.locale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-logo img {
+    width: 330px;
+    height: 40px;
+    background: none;
+}
+
+.phone-number, address {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 15px;
+    color: var(--primary);
+    width: 30%;
+}
+
+.phone-number:hover {
+    background: var(--hover);
+}
+
+@media only screen and (min-width: 500px) {
+    .header-image {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .phone-number, address {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .header-image {
+        width: 90%;
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .header-image {
+        width: 90%;
+        height: 500px;
+    }
+}

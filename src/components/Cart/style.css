@@ -1,0 +1,80 @@
+.cart-div, .toggle-cart, .shop-more-warning, .toggle-cart, .cart-title, .cart-info, .cart-input-div, .total-div, .cart-input-div label, .cart-input-div input, .cart-button {
+    background: none;
+}
+
+.cart-div-closed {
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.cart-div-open {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 3px 3px 1px white;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.cart-image {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+.toggle-cart {
+    font-family: 'Dokdo', cursive;
+    font-size: 40px;
+}
+
+.cart-title {
+font-family: 'Dokdo', cursive;
+font-size: 60px;
+}
+
+.shop-more-warning {
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.cart-info {
+    border: solid 5px white;
+    font-family: 'Gloria Hallelujah', cursive;
+    padding: 10px;
+}
+
+.cart-info input {
+    background: white;
+    color: black;
+    margin: 5px;
+}
+
+.cart-input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-div {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cart-button {
+    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
+    color: #000C66;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.cart-button:hover {
+    background: #FFBF00;
+    color: white;
+}

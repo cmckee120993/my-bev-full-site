@@ -1,0 +1,102 @@
+/* removing universal styling */
+
+.success-message, .contact-title-div, .contact-title, .contact-header-image, .contact-form, .contact-form input, .contact-form label, .contact-form textarea, .contact-submit {
+    background: none;
+}
+
+/* contact title styling */
+
+.contact-title-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-title {
+    color: var(--primary);
+    font-family: 'Dokdo', cursive;
+    font-size: 30px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.contact-header-image {
+    width: 50%;
+    margin: 25px;
+}
+
+/* contact form styling */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--primary);
+    align-items: center;
+}
+
+.contact-form input, .contact-form textarea {
+    margin: 10px;
+    width: 75%;
+    background: var(--primary);
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.contact-form textarea {
+    height: 200px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.contact-form label {
+    font-size: 25px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.contact-submit {
+    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
+    width: 25%;
+    color: var(--secondary);
+    font-family: 'Dokdo', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-submit:hover {
+    color: var(--primary);
+    background: var(--hover);
+}
+
+.success-message {
+    color: var(--primary);
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 25px;
+    text-align: justify;
+    margin: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    .contact-header-image {
+        width: 40%;
+    }
+    .contact-title {
+        font-size: 50px;
+    }
+    .contact-form input, .contact-form textarea {
+        font-size: 25px;
+    }
+
+    .contact-submit {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .contact-header-image {
+        width: 20%;
+    }
+    .contact-title-div {
+        margin-top: -20px;
+        justify-content: center;
+    }
+}

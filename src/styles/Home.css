@@ -1,0 +1,105 @@
+/* removing universal background */
+.home-header, .home-description, .home-content, .email-listserv, .listserv-header, .listserv-description, .listserv-form, .listserv-form label, .listserv-form input, .store-news, .news-title, .news-description, .recent-news {
+    background: none;
+}
+
+/* home styling */
+
+.home-header, .home-description, .home-content, .email-listserv {
+    color: var(--primary);
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.home-header {
+    text-align: center;
+   font-size: 20px;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home-description {
+    text-align: justify;
+    border: solid var(--primary) 2px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 10px;
+}
+
+/* listserv and news styling */
+
+.home-content {
+    display: flex;
+    justify-content: center;
+}
+.email-listserv, .store-news {
+    padding: 25px;
+    width: 100%;
+    border: solid var(--primary) 2px;
+    margin: 25px;
+}
+
+.listserv-header, .news-title, .store-news {
+    text-align: center;
+}
+
+.listserv-description, .news-description {
+    text-align: justify;
+    font-size: 15px;
+}
+
+.listserv-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.listserv-form label {
+    margin-top: 10px;
+}
+
+.listserv-form input {
+    background: var(--primary);
+    width: 75%;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.listserv-form button {
+    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
+    width: 50%;
+    color: var(--secondary);
+    font-family: 'Dokdo', cursive;
+    font-size: 25px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.listserv-form button:hover {
+    color: var(--primary);
+    background: var(--hover);
+}
+
+.recent-news {
+    width: 250px;
+    height: 116px;
+}
+
+@media only screen and (min-width: 700px) {
+    .email-listserv, .store-news {
+        width: 35%;
+    }
+
+    .listserv-description, .news-description, .listserv-form label, .home-description, .listserv-form input {
+        font-size: 20px;
+    }
+    .home-header {
+        font-size: 40px;
+    }
+
+    .recent-news {
+        width: 300px;
+        height: 139px;
+    }
+}

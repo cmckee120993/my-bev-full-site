@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Dokdo&family=Gloria+Hallelujah&display=swap");
+
+
+
+* {
+    color: white;
+}
+
+.update-title, .order-history-title {
+    font-family: 'Dokdo', cursive;
+    font-size: 75px;
+    text-align: center;
+}
+
+.update-form, .update-title, .update-form, .update-label, .update-label-email, .update-input, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li {
+    background: none;
+}
+
+.update-label, .update-label-email {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 25px;
+}
+
+.update-label {
+    margin-right: 20px;
+}
+
+.update-label-email {
+margin-right: 90px;
+}
+
+.update-form-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-input {
+    background: white;
+    color: black;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 15px;
+    width: 50%;
+}
+
+.update-button {
+    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
+    color: #000C66;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px
+}
+
+.update-button:hover {
+    background: #FFBF00;
+    color: white;
+}
+
+.update-button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.update-form-div div {
+    display: flex;
+    justify-content: center;
+}
+
+.order-history-title {
+    width: 100%;
+}
+
+.order-history-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: white solid 3px;
+    padding: 5px;
+   
+}
+
+.order-date {
+    font-family: 'Dokdo', cursive;
+    font-size: 40px;
+}
+
+.order-details {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+}
+
+.orders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Dokdo&family=Gloria+Hallelujah&display=swap");
+
+
+
+* {
+    color: white;
+}
+
+.login-title {
+    font-family: 'Dokdo', cursive;
+    font-size: 75px;
+    text-align: center;
+}
+
+.login-form, .login-title, .login-form div, .login-label, .login-label-email, .login-input {
+    background: none;
+}
+
+.signup-link {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    background: none;
+}
+
+.signup-link-div {
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
+.login-label, .login-label-email {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 25px;
+}
+
+.login-label {
+    margin-right: 20px;
+}
+
+.login-label-email {
+margin-right: 60px;
+}
+
+.login-form div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+}
+
+.login-input {
+    background: white;
+    color: black;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 15px;
+    width: 50%;
+}
+
+.login-button {
+    background-image: radial-gradient(#dee1e4, #aaa9ad);
+    color: #000C66;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px
+}
+
+.login-button:hover {
+    background: #FFBF00;
+    color: white;
+}

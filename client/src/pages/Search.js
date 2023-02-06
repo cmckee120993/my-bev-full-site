@@ -2,6 +2,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// shopping cart add
+import { useStoreContext } from '../utils/GlobalState'
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
+import { idbPromise } from '../utils/helpers';
+
 // cards of items for search result
 import { Card } from 'semantic-ui-react';
 
@@ -12,7 +17,7 @@ import sixPack from '../assets/images/bx-six-pack.webp';
 // placeholder image until database is updated
 import bottle from '../assets/images/bx-beer-bottle.webp';
 
-function Search() {
+function Search(item) {
     const [APIData, setAPIData] = useState([]);
 
     const searchItem = function () {
@@ -45,6 +50,38 @@ function Search() {
             searchItem();
         };
     };
+
+    const [state, dispatch] = useStoreContext();
+    const { cart } = state;
+    
+    const addToCart = (event) => {
+     
+    let cartButton = event.target;
+    let itemName = cartButton.getAttribute('itemName');
+    let itemPrice = cartButton.getAttribute('itemPrice');
+    
+      console.log(itemName);
+      console.log(itemPrice);
+      const itemInCart = cart.find((cartItem) => cartItem.name === itemName)
+      console.log(cart);
+      if(itemInCart) {
+        dispatch({
+          type: UPDATE_CART_QUANTITY,
+          name: itemName,
+          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        });
+        idbPromise ('cart', 'put', {
+          ...itemInCart,
+          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) +1
+        });
+      } else {
+        dispatch({
+          type: ADD_TO_CART,
+          product: { name: itemName, price: itemPrice,  purchaseQuantity: 1 }
+        });
+        idbPromise('cart', 'put', { ...item, purchaseQuantity: 1});
+      }
+    }
 
     return (
         <>
@@ -98,12 +135,13 @@ function Search() {
                                         <p>{item.Category}</p>
                                     </Card.Description>
                                 </Card.Content>
+                                <button itemName={item.Description} itemPrice={item.CaseRetail} onClick={addToCart} className="cart-button">Add to Cart</button>
                             </Card>
                         );
                     })}
                 </Card.Group>
             </div>
-            <p className='slushy-products'>To see a list of our current slushy flavors, please go to our <a href='/slushies' className='internal-link'>Slushies Page</a>.</p>
+            <p className='slushy-products'>To see a list of our current slushy flavors, beers on tap, and seasonal beers, please go to our <a href='/seasonal' className='internal-link'>What's On Tap Page</a>.</p>
         </>
     )
 };

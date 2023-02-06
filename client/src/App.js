@@ -20,7 +20,7 @@ import Navbar from './components/Nav';
 // page specific imports
 import Home from './pages/Home';
 import Search from './pages/Search';
-import Slushies from './pages/Slushies';
+import Seasonal from './pages/Seasonal';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -62,9 +62,9 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/customerpaner' element={<CustomerPanel />} />
+            <Route path='/customerpanel' element={<CustomerPanel />} />
             <Route path='/search' element={<Search />} />
-            <Route path='/slushies' element={<Slushies />} />
+            <Route path='/seasonal' element={<Seasonal />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='*' element={<h1>Wrong page!</h1>} />
           </Routes>

@@ -36,7 +36,6 @@ function Search(item) {
         axios  
             .request(options)
             .then(function(response) {
-                console.log(response);
                 setAPIData(response.data.Results);
             })
             .catch(function(error) {
@@ -60,10 +59,7 @@ function Search(item) {
     let itemName = cartButton.getAttribute('itemName');
     let itemPrice = cartButton.getAttribute('itemPrice');
     
-      console.log(itemName);
-      console.log(itemPrice);
       const itemInCart = cart.find((cartItem) => cartItem.name === itemName)
-      console.log(cart);
       if(itemInCart) {
         dispatch({
           type: UPDATE_CART_QUANTITY,

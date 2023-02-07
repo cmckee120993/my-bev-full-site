@@ -75,14 +75,6 @@ const Cart = () => {
     console.log(deliveryDate);
     console.log(orderOwner);
     console.log(orderTotal);
-    // console.log(products)
-    // console.log(order);
-    // order.push(
-    //     {
-    //     deliveryDate: deliveryDate, 
-    //     orderOwner: orderOwner, 
-    //     products: products}
-    //     );
    
 };
         
@@ -98,7 +90,7 @@ const Cart = () => {
 
     return (
         <>
-            <div style={{backgroundImage: 'radial-gradient(#dee1e4, #aaa9ad)', opacity: '90%' }} className="cart-div-open">
+            <div style={{backgroundImage: 'radial-gradient(#000C66, #000000)' }} className="cart-div-open">
                 <div className="toggle-cart" onClick={toggleCart}>
                     [close]
                 </div>

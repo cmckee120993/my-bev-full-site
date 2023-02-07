@@ -43,6 +43,7 @@
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
+  top: 0;
 }
   
   /* General sidebar styles */
@@ -61,6 +62,9 @@
   /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  height: 100%;
+  position: fixed;
 }
 
   /* Individual item */
@@ -91,7 +95,7 @@
   background: none;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 500px) {
   .bm-burger-button {
     width: 40px;
     height: 40px;

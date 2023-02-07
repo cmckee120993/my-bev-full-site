@@ -1,5 +1,5 @@
 /* remove universal background */
-footer, .footer-logo, .footer-logo img, .social-links, .social-links a, .footer-icon, .site-creator, .site-creator img, .copyright, address, .phone-number, .creator-site, .creator-email {
+footer, .footer-logo, .footer-logo img, .social-links, .social-links a, .footer-icon, .site-creator, .site-creator img, .copyright, address, .phone-number, .creator-site, .creator-email, .site-creator-contact {
     background: none;
 }
 

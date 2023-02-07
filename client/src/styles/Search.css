@@ -64,7 +64,6 @@
 .card {
     margin-bottom: 30px;
     width: 150px;
-    height: 375px;
     text-align: center;
     border: solid var(--primary) 1px;
 }
@@ -95,6 +94,25 @@
     height: 100px;
     margin-top: 10px;
 }
+
+.cart-button {
+    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
+    width: 75%;
+    height: 40px;
+    border: none;
+    color: var(--secondary);
+    font-size: 20px;
+    font-family: 'Dokdo', cursive;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.cart-button:hover {
+    background: var(--hover);
+    color: var(--primary);
+}
+
 .slushy-products {
     color: var(--primary);
     font-family: 'Gloria Hallelujah', cursive;
@@ -122,7 +140,6 @@
         font-size: 20px;
     }
     .card {
-        height: 500px;
         width: 250px;
     }
     .beer-placeholder {

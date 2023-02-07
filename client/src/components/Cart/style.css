@@ -1,4 +1,4 @@
-.cart-div, .toggle-cart, .shop-more-warning, .toggle-cart, .cart-title, .cart-info, .cart-input-div, .total-div, .cart-input-div label, .cart-input-div input, .cart-button, .cart-div-closed {
+.cart-div, .cart-info,.cart-info div, .cart-info span, .cart-total, .toggle-cart, .shop-more-warning, .toggle-cart, .cart-title, .cart-info, .cart-input-div, .total-div, .cart-input-div label, .cart-input-div input, .cart-button, .cart-div-closed {
     background: none;
 }
 
@@ -10,17 +10,18 @@
 }
 
 .cart-div-open {
-    width: 30%;
+    width: 75%;
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
     text-align: center;
-    border-radius: 25px;
     box-shadow: 5px 5px 10px white;
     margin-right: 15px;
     margin-top: 10px;
+    border: 3px white solid;
+    border-radius: 25px
 }
 
 .cart-image {
@@ -35,8 +36,8 @@
 }
 
 .cart-title {
-font-family: 'Dokdo', cursive;
-font-size: 60px;
+    font-family: 'Dokdo', cursive;
+    font-size: 60px;
 }
 
 .shop-more-warning {
@@ -45,7 +46,6 @@ font-size: 60px;
 }
 
 .cart-info {
-    border: solid 5px white;
     font-family: 'Gloria Hallelujah', cursive;
     padding: 10px;
 }
@@ -69,7 +69,7 @@ font-size: 60px;
     align-items: center;
 }
 .cart-button {
-    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
+    background: radial-gradient(#dee1e4, #aaa9ad) ;
     color: #000C66;
     font-family: 'Gloria Hallelujah', cursive;
 }
@@ -77,6 +77,10 @@ font-size: 60px;
 .cart-button:hover {
     background: #FFBF00;
     color: white;
+}
+
+.deliv-date, .order-owner {
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 @media only screen and (min-width: 500px) {

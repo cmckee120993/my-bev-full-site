@@ -3,11 +3,10 @@ import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { TOGGLE_CART } from '../../utils/actions';
 import './style.css';
 import { useMutation } from '@apollo/client';
 import { ADD_ORDER } from '../../utils/mutations';
-// import { ADD_TO_ORDER } from '../../utils/mutations';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCartShopping} from "@fortawesome/free-solid-svg-icons";
 
@@ -16,12 +15,11 @@ import {faCartShopping} from "@fortawesome/free-solid-svg-icons";
 const Cart = () => {
     const [state, dispatch] = useStoreContext();
     const [addOrder] = useMutation(ADD_ORDER);
-    // const [addToOrder] = useMutation(ADD_TO_ORDER);
 
     useEffect(() => {
         async function getCart() {
             const cart = await idbPromise('cart', 'get');
-            dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+            dispatch({  products: [...cart] });
         }
 
         if (!state.cart.length) {
@@ -49,7 +47,6 @@ const Cart = () => {
             console.log(typeof orderTotalFloat)
             const products = [];
             state.cart.forEach((item) => {
-                console.log(item);
               products.push({
                     name: item.name,
                     price: parseInt(item.price),
@@ -57,12 +54,6 @@ const Cart = () => {
               })
 
         });
-        console.log({
-            deliveryDate, 
-            orderOwner,
-            orderTotal,
-            products
-        })
             addOrder({
                 variables: {
                     deliveryDate, 
@@ -72,10 +63,6 @@ const Cart = () => {
                 }
                 });
         
-    console.log(deliveryDate);
-    console.log(orderOwner);
-    console.log(orderTotal);
-   
 };
         
 

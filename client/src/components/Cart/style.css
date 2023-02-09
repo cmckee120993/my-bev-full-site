@@ -24,6 +24,11 @@
     border-radius: 25px
 }
 
+.cart-image:hover, .toggle-cart:hover {
+    color: var(--hover);
+    cursor: pointer;
+}
+
 .cart-image {
     height: 30px;
     width: 30px;
@@ -59,19 +64,24 @@
 .cart-input-div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .total-div {
     text-align: center;
     margin-top: 20px;
+    margin-right: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-end;
 }
 .cart-button {
     background: radial-gradient(#dee1e4, #aaa9ad) ;
     color: #000C66;
     font-family: 'Gloria Hallelujah', cursive;
+    margin: auto;
 }
 
 .cart-button:hover {
@@ -81,11 +91,25 @@
 
 .deliv-date, .order-owner {
     font-family: 'Gloria Hallelujah', cursive;
+    width: 75%;
+    text-align: center;
 }
 
 @media only screen and (min-width: 500px) {
     .cart-image {
         height: 50px;
         width: 50px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .cart-div-open {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .cart-div-open {
+        width: 30%;
     }
 }

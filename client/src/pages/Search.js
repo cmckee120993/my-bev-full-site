@@ -56,7 +56,7 @@ function Search(item) {
     const addToCart = (event) => {
      
     let cartButton = event.target;
-    let itemName = cartButton.getAttribute('itemName');
+    let itemName = cartButton.getAttribute('itemname');
     let itemPrice = cartButton.getAttribute('itemPrice');
     
       const itemInCart = cart.find((cartItem) => cartItem.name === itemName)
@@ -109,10 +109,6 @@ function Search(item) {
             <div className="card-div">
                 <Card.Group className="ui-card-div">
                     {APIData.map((item) => {
-                        // let price = item.CaseRetail;
-                        // let name = item.Description;
-                        // let packPrice = item.Retail;
-                        // let itemSize = item.Size;
                         return (
                             <Card className="card">
                                 <Card.Content>
@@ -131,7 +127,7 @@ function Search(item) {
                                         <p>{item.Category}</p>
                                     </Card.Description>
                                 </Card.Content>
-                                <button itemName={item.Description} itemPrice={item.CaseRetail} onClick={addToCart} className="cart-button">Add to Cart</button>
+                                <button itemname={item.Description} itemprice={item.CaseRetail} onClick={addToCart} className="cart-button">Add to Cart</button>
                             </Card>
                         );
                     })}

@@ -64,19 +64,3 @@ export const ADD_ORDER = gql`
   }
 `;
 
-// export const ADD_TO_ORDER = gql`
-// mutation AddToOrder($orderId: ID!, $name: String!, $price: Int!, $purchaseQuantity: Int!) {
-//   addToOrder(orderId: $orderId, name: $name, price: $price, purchaseQuantity: $purchaseQuantity) {
-//     _id
-//     purchaseDate
-//     deliveryDate
-//     orderOwner
-//     products {
-//       name
-//       price
-//       quantity
-//     }
-//     orderTotal
-//   }
-// }
-// `

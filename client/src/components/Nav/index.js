@@ -3,21 +3,26 @@ import { bubble as Menu } from 'react-burger-menu';
 
 // auth
 import Auth from '../../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from  '../../utils/queries';
 
 // styling and images
 import './style.css';
 import bottle from '../../assets/images/bx-beer-bottle.webp';
 
 function Navbar() {
+    const { data } = useQuery(QUERY_USER);
+    let user;
+    if (data) {
+        user = data.user;
+    };
+    console.log(data)
+
 
     function showNavigation() {
         if(Auth.loggedIn()) {
             return (
                 <>
-                    <a className='bm-item menu-item' href='/customerpanel'>
-                    Customer Panel
-                    </a>
-                    <br/>
                     <a onClick={() => Auth.logout()} className='bm-item menu-item' href='/'>
                     Logout
                     </a>
@@ -37,6 +42,25 @@ function Navbar() {
             )
         }
     }
+    function userTypeNav() {
+        if (user === undefined) {
+            return (
+                <></>
+            )
+        } else if (user.admin === false) {
+            return (
+                <a className='bm-item menu-item' href='/customerpanel'>
+                    Customer Panel
+                </a>
+            )
+        } else if (user.admin === true) {
+            return (
+                <a className='bm-item menu-item' href='/adminpanel'>
+                    Admin Panel
+                </a>
+            )
+        }
+    }
     return ( 
         <Menu>
             <a className='menu-item' href='/'>
@@ -51,6 +75,7 @@ function Navbar() {
             <a className='menu-item' href='/contact'>
                 Contact
             </a>
+            {userTypeNav()}
             {showNavigation()}
             <img 
                 src={bottle}

@@ -5,6 +5,7 @@ import decode from 'jwt-decode';
 class AuthService {
 	// get user data
 	getProfile() {
+	
 		return decode(this.getToken());
 	}
 

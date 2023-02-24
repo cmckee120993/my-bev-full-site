@@ -7,6 +7,7 @@ query getUserData {
     firstName
     lastName
     email
+    admin
     orders {
       _id
       purchaseDate

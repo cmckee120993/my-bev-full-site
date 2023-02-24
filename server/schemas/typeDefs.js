@@ -7,6 +7,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    admin: Boolean
     orders: [Order]
   }
 
@@ -52,6 +53,7 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
+      admin: Boolean
     ): Auth
     addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!, products: [ProductInput]!): Order
     addToOrder(orderId: ID!, name: String!, price: Int!, purchaseQuantity: Int!): Order

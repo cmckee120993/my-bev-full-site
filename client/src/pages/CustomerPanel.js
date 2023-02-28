@@ -11,7 +11,7 @@ function CustomerPanel() {
     if (data) {
         user = data.user;
     };
-    console.log(data);
+
     const [formState, setFormState] = useState({email: '', firstName: '', lastName: ''})
     const [updateUser] = useMutation(UPDATE_USER);
 
@@ -32,6 +32,18 @@ function CustomerPanel() {
             ...formState,
             [name]: value,
         })
+    };
+
+    function orderStatus(status) {
+        if(status === true) {
+            return(
+                <li style={{background: 'green'}}>Delivery Status: Delivered</li>
+            )
+        } else {
+            return (
+                <li style={{background: 'red'}}>Delivery Status: Working on it!</li>
+            )
+        }
     };
 
     return (
@@ -88,6 +100,7 @@ function CustomerPanel() {
                                 <ul>
                                     <li>Person Picking Up Order: {order.orderOwner}</li>
                                     <li>Delivery Date: {order.deliveryDate}</li>
+                                    {orderStatus(order.orderStatus)}
                                     <li>Total: ${order.orderTotal}</li>
                                     <li>Products:</li>
                                     {order.products.map(({name, price, quantity}, index) => (

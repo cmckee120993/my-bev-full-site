@@ -8,6 +8,7 @@
 
 * {
   background-image: radial-gradient(#1c1e47, black);
+  color: var(--primary);
 }
 
 .internal-link, .external-link {

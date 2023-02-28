@@ -1,10 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Dokdo&family=Gloria+Hallelujah&display=swap");
 
-
-
-* {
-    color: white;
-}
 
 .update-title, .order-history-title {
     font-family: 'Dokdo', cursive;
@@ -12,7 +6,7 @@
     text-align: center;
 }
 
-.update-form, .update-title, .update-form, .update-label, .update-label-email, .update-input, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li {
+.update-form, .update-title, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li {
     background: none;
 }
 
@@ -93,4 +87,5 @@ margin-right: 90px;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 20px;
 }

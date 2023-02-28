@@ -30,6 +30,7 @@ const typeDefs = gql`
     orderOwner: String
     products: [Product]
     orderTotal: Float
+    orderStatus: Boolean
   }
 
   type Auth {
@@ -55,7 +56,7 @@ const typeDefs = gql`
       password: String!
       admin: Boolean
     ): Auth
-    addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!, products: [ProductInput]!): Order
+    addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!, orderStatus: Boolean!, products: [ProductInput]!): Order
     addToOrder(orderId: ID!, name: String!, price: Int!, purchaseQuantity: Int!): Order
     updateUser(
       firstName: String
@@ -68,6 +69,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-
-
-// addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!): Order

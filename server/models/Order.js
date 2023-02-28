@@ -22,6 +22,11 @@ const orderSchema = new Schema({
         required: true
     },
     products: [Product.schema],
+    orderStatus: {
+        type: Boolean,
+        required: true,
+        default: false
+    }
     
 });
 

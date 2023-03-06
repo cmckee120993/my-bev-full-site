@@ -1,6 +1,8 @@
 import React from 'react';
 import {useQuery} from '@apollo/client';
 import {QUERY_ORDERS} from '../utils/queries';
+import {useMutation} from '@apollo/client';
+import {UPDATE_STATUS} from '../utils/mutations';
 import '../styles/AdminPanel.css'
 
 function AdminPanel() {
@@ -10,19 +12,35 @@ function AdminPanel() {
         orders = data.orders;
     };
 
+    const {updateOrderStatus} = useMutation(UPDATE_STATUS);
+
     console.log(orders);
 
     function orderStatus(status) {
         if(status === true) {
             return(
-                <li style={{background: 'green'}}>Delivery Status: Delivered</li>
+                <li className='delivery-status' style={{background: 'green'}}>Delivery Status: Delivered</li>
             )
         } else {
             return (
-                <li style={{background: 'red'}}>Delivery Status: Working on it!</li>
+                <li className='delivery-status' style={{background: 'red'}}>Delivery Status: Working on it!</li>
             )
         }
     };
+
+    function titleCase(str) {
+        str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  let productName= str.join(' ');
+  
+  return (
+    <>
+        <li>{productName}</li>
+    </>
+  )
+};
 
     function deliveryDateChange(date) {
       let delivDate = date.split('-');
@@ -34,13 +52,28 @@ function AdminPanel() {
       )
     }
 
+    function changeStatus(order) {
+        if (order.orderStatus) {
+            updateOrderStatus({
+                variables: {
+                    orderStatus: false,
+                    id
+                }
+            })
+        } else {
+            console.log(false);
+        }
+        
+    }
+
     return(
         <>
             <h2 className='admin-title'>Beverage Express Admin Panel</h2>
+            <h3 className='all-orders'>Delivery Orders</h3>
             <div className='admin-orders'>
                 {orders ? (
                     <>
-                        <h2 className='all-orders'>Orders</h2>
+                        
                         {orders.map((order) => (
                             <div className='admin-order-div'>
                                 <ul>
@@ -48,12 +81,12 @@ function AdminPanel() {
                                     <li>Order Placed On: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</li>
                                     {deliveryDateChange(order.deliveryDate)}
                                     {orderStatus(order.orderStatus)}
-                                    <button>Change Order Status</button>
+                                    <button onClick={changeStatus(order)} className='order-change-button'>Change Order Status</button>
                                     <li>Order Total {order.orderTotal}</li>
                                     <li>Products:</li>
-                                        {order.products.map(({name, price, quantity}, index) => (
+                                        {order.products.map(({ name ,price, quantity}, index) => (
                                             <ul>
-                                                <li>{name}</li>
+                                                {titleCase(name)}
                                                 <ul>
                                                     <li>Price: ${price}</li>
                                                     <li>Quantity: {quantity}</li>

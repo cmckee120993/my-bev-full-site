@@ -11,10 +11,7 @@ const resolvers = {
 		},
 
 		order: async (parent, { _id }, context) => {
-			if (context.user) {
 				return await Order.findById(_id).populate('products');
-			}
-			throw new AuthenticationError('Not logged in.')
 		}, 
 	// For current client-side site
 		user: async (parent, args, context) => {
@@ -65,13 +62,9 @@ const resolvers = {
 		throw new AuthenticationError('Not logged in');
 		},
 
-		addToOrder: async (parent, { orderId, name, price, purchaseQuantity }, context) => {
-			if(context.user) {
-				const product = Product.create(name, price, purchaseQuantity);
-				const order = await Order.findByIdAndUpdate(orderId, { $push: product});
-				return order;
-			}
-		}
+		updateOrderStatus: async (_id, orderStatus, context) => {
+			return await Order.findByIdAndUpdate(_id, {$set: {orderStatus: orderStatus}});
+		},
 	},
 };
 

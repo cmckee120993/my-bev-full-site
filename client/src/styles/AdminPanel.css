@@ -1,0 +1,47 @@
+.admin-title, .all-orders, .admin-orders, .admin-order-div, .admin-order-div ul, .admin-order-div li {
+    background: none;
+}
+
+.admin-title {
+    font-family: 'Dokdo', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+
+.all-orders {
+    font-family: 'Dokdo', cursive;
+    font-size: 50px;
+    margin-left: 50px;
+}
+
+.order-change-button {
+    background: radial-gradient(#dee1e4, #aaa9ad) ;
+    color: #000C66;
+    font-family: 'Gloria Hallelujah', cursive;
+    margin: auto;
+    -webkit-text-stroke: 1px;
+    margin: 10px 75px;
+}
+
+.admin-orders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.admin-order-div {
+    background: white;
+    width: 360px;
+    border-radius: 25px;
+    margin: 10px 0px;
+}
+
+.admin-order-div li {
+    color: #000C66;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    -webkit-text-stroke: 1px;
+}
+
+.delivery-status {
+    width: 225px;
+}

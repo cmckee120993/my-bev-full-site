@@ -57,7 +57,6 @@ const typeDefs = gql`
       admin: Boolean
     ): Auth
     addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!, orderStatus: Boolean!, products: [ProductInput]!): Order
-    addToOrder(orderId: ID!, name: String!, price: Int!, purchaseQuantity: Int!): Order
     updateUser(
       firstName: String
       lastName: String
@@ -65,6 +64,10 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
+    updateOrderStatus(
+    _id: ID!
+      orderStatus: Boolean
+    ): Order
   }
 `;
 

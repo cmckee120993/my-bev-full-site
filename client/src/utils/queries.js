@@ -26,19 +26,18 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_ORDERS = gql`
-  query getOrders {
-    orders {
-      _id
-      purchaseDate
-      deliveryDate
-      orderOwner
-      products {
-        name
-        price
-        quantity
-      }
-      orderTotal
-      orderStatus
+query Orders {
+  orders {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
     }
+    orderTotal
+    orderStatus
   }
-`;
+}`

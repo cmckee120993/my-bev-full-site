@@ -39,28 +39,20 @@ export const ADD_USER = gql`
 
 export const ADD_ORDER = gql`
   mutation addOrder(
-    $orderOwner: String!
-    $deliveryDate: String!
-    $orderTotal: Float!
-    $products: [ProductInput]!
-  ) {
-    addOrder(
-      orderOwner: $orderOwner
-      deliveryDate: $deliveryDate
-      orderTotal: $orderTotal
-      products: $products
-    ) {
-      _id
-      purchaseDate
-      deliveryDate
-      orderOwner
-      products {
-        name
-        price
-        quantity
-      }
-      orderTotal
+  $orderOwner: String!, $deliveryDate: String!, $orderTotal: Float!, $orderStatus: Boolean!, $products: [ProductInput]!) {
+  addOrder(orderOwner: $orderOwner, deliveryDate: $deliveryDate, orderTotal: $orderTotal, orderStatus: $orderStatus, products: $products) {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
     }
+    orderTotal
+    orderStatus
   }
+}
 `;
 

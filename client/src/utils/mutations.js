@@ -57,18 +57,10 @@ export const ADD_ORDER = gql`
 `;
 
 export const UPDATE_STATUS = gql`
-  mutation updateOrderStatus($id: ID!, $orderStatus: Boolean) {
-  updateOrderStatus(_id: $id, orderStatus: $orderStatus) {
+  mutation updateOrderStatus($orderStatus: Boolean, $id: ID!) {
+  updateOrderStatus(orderStatus: $orderStatus, _id: $id) {
     _id
-    purchaseDate
-    deliveryDate
     orderOwner
-    products {
-      name
-      price
-      quantity
-    }
-    orderTotal
     orderStatus
   }
 }

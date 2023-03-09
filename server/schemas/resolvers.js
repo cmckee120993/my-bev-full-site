@@ -62,8 +62,9 @@ const resolvers = {
 		throw new AuthenticationError('Not logged in');
 		},
 
-		updateOrderStatus: async (_id, orderStatus, context) => {
-			return await Order.findByIdAndUpdate(_id, {$set: {orderStatus: orderStatus}});
+		updateOrderStatus: async (parent, {_id, orderStatus}) => {
+			const order = await Order.findByIdAndUpdate(_id, {$set: {orderStatus: orderStatus} });
+			return order;
 		},
 	},
 };

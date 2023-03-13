@@ -62,9 +62,9 @@ function Home() {
                 <div className='store-news'>
                     <h3 className='news-title'>New on Tap at Bev Exp!</h3>
                     <p className='news-description'>
-                        Beverage Express is getting some new wheels! 
-                        Our delivery van is currently getting decked out 
-                        and we will be exploring ways to start doing more delivery to bring beer to you!
+                        We've already got a whole lotta beer, but we want to say the same thing about our slushies. To make that happen, 
+                        we just added in some new slushy machines with new flavors! Check out our <a href='/seasonal' className='external-link'>
+                        "What's On Tap?"</a> page to keep up with our latest options. 
                         Stay up to date with other news on our <a className='external-link' href='https://www.facebook.com/wholelottabeer/'>Facebook</a> and our <a className='external-link' href='https://www.instagram.com/bevexcarlisle/'>Instagram</a>.
                     </p>
                     <img 

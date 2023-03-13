@@ -18,7 +18,6 @@ function AdminPanel() {
 
     function orderStatus(order) {
         
-
         if(order.orderStatus === true) {
             return(
                 <>
@@ -79,14 +78,24 @@ function AdminPanel() {
       )
     }
 
+
     return(
         <>
             <h2 className='admin-title'>Beverage Express Admin Panel</h2>
             <h3 className='all-orders'>Delivery Orders</h3>
+            
             <div className='admin-orders'>
+                
                 {orders ? (
                     <>
-                        
+                    <div className='switch-div'>
+                    <p>Delivered</p>
+                    <label class='switch'>
+                        <input type='checkbox'></input>
+                        <span class='slider round'></span>
+                    </label>
+                    <p>Undelivered</p>
+                </div>
                         {orders.map((order) => (
                             <div className='admin-order-div'>
                                 <ul>

@@ -13,7 +13,7 @@ const resolvers = {
 		order: async (parent, { _id }, context) => {
 				return await Order.findById(_id).populate('products');
 		}, 
-	// For current client-side site
+
 		user: async (parent, args, context) => {
 			if (context.user) {
 				const user = await User.findById({_id: context.user._id})

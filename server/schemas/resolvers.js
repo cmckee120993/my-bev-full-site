@@ -14,6 +14,13 @@ const resolvers = {
 				return await Order.findById(_id).populate('products');
 		}, 
 
+		orderStatusFalse: async () => {
+				return Order.find({orderStatus: false});
+			},
+
+		orderStatusTrue: async () => {
+			return Order.find({orderStatus: true});
+		},
 		user: async (parent, args, context) => {
 			if (context.user) {
 				const user = await User.findById({_id: context.user._id})

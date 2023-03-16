@@ -40,4 +40,39 @@ query Orders {
     orderTotal
     orderStatus
   }
-}`
+}`;
+
+export const QUERY_STATUS_FALSE = gql`
+query OrderStatusFalse {
+  orderStatusFalse {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+  }
+}`;
+
+export const QUERY_STATUS_TRUE = gql`
+query OrderStatusTrue {
+  orderStatusTrue {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+  }
+}
+`;

@@ -1,82 +1,109 @@
 import React from 'react';
-import {useQuery} from '@apollo/client';
-import {QUERY_ORDERS} from '../utils/queries';
-import {useMutation} from '@apollo/client';
-import {UPDATE_STATUS} from '../utils/mutations';
 import '../styles/AdminPanel.css'
+import DeliveredOrders from '../components/deliveredOrders';
 
 function AdminPanel() {
-    const { data } = useQuery(QUERY_ORDERS);
-    let orders;
-    if(data) {
-        orders = data.orders;
-    };
+    // const { data } = useQuery(QUERY_ORDERS);
+    // const {data} = useQuery(QUERY_STATUS_TRUE);
+    // const {falseData} = useQuery(QUERY_STATUS_FALSE);
 
-    const [updateOrderStatus] = useMutation(UPDATE_STATUS);
+    // let orders;
+    // if(data) {
+    //     orders = data.orders;
+    // };
 
+    // // console.log(orders);
+
+    // let trueOrders;
+    // if(data) {
+    //     trueOrders = data.orderStatusTrue;
+    // }
+
+    // console.log(trueOrders);
+
+    // let falseOrders;
+    // if(falseData) {
+    //     falseOrders = falseData.orders;
+//     }
+//     const [updateOrderStatus] = useMutation(UPDATE_STATUS);
    
 
-    function orderStatus(order) {
+//     function orderStatus(order) {
         
-        if(order.orderStatus === true) {
-            return(
-                <>
-                    <li className='delivery-status' style={{background: 'green'}}>Delivery Status: Delivered</li>
-                    <button className='order-change-button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <li className='delivery-status' style={{background: 'red'}}>Delivery Status: Working on it!</li>
-                    <button className='order-change-button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
-                </>
-            )
-        }
-    };
-    const trueStatus= (event) => {
-        let orderBtn = event.target;
-        let orderId = orderBtn.getAttribute('orderid');
-       updateOrderStatus ( {
-            variables: {
-                id: orderId,
-                orderStatus: true, 
-            }
-        })
-    };
-    const  falseStatus = (event) => {
-        let orderBtn = event.target;
-        let orderId = orderBtn.getAttribute('orderid');
-       updateOrderStatus ( {
-            variables: {
-                id: orderId,
-                orderStatus: false, 
-            }
-        })
-    };
-    function titleCase(str) {
-        str = str.toLowerCase().split(' ');
-  for (var i = 0; i < str.length; i++) {
-    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
-  }
-  let productName= str.join(' ');
+//         if(order.orderStatus === true) {
+//             return(
+//                 <>
+//                     <li className='delivery-status' style={{background: 'green'}}>Delivery Status: Delivered</li>
+//                     <button className='order-change-button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
+//                 </>
+//             )
+//         } else {
+//             return (
+//                 <>
+//                     <li className='delivery-status' style={{background: 'red'}}>Delivery Status: Working on it!</li>
+//                     <button className='order-change-button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
+//                 </>
+//             )
+//         }
+//     };
+//     const trueStatus= (event) => {
+//         let orderBtn = event.target;
+//         let orderId = orderBtn.getAttribute('orderid');
+//        updateOrderStatus ( {
+//             variables: {
+//                 id: orderId,
+//                 orderStatus: true, 
+//             }
+//         })
+//     };
+//     const  falseStatus = (event) => {
+//         let orderBtn = event.target;
+//         let orderId = orderBtn.getAttribute('orderid');
+//        updateOrderStatus ( {
+//             variables: {
+//                 id: orderId,
+//                 orderStatus: false, 
+//             }
+//         })
+//     };
+//     function titleCase(str) {
+//         str = str.toLowerCase().split(' ');
+//   for (var i = 0; i < str.length; i++) {
+//     str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+//   }
+//   let productName= str.join(' ');
   
-  return (
-    <>
-        <li>{productName}</li>
-    </>
-  )
-};
+//   return (
+//     <>
+//         <li>{productName}</li>
+//     </>
+//   )
+// };
 
-    function deliveryDateChange(date) {
-      let delivDate = date.split('-');
-      let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
-      return (
-        <>
-            <li>Delivery Date: {fixedDate}</li>
-        </>
-      )
-    }
+//     function deliveryDateChange(date) {
+//       let delivDate = date.split('-');
+//       let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
+//       return (
+//         <>
+//             <li>Delivery Date: {fixedDate}</li>
+//         </>
+//       )
+//     }
+
+    // function toggle() {
+    //     var checkbox = document.querySelector('input[type="checkbox"]');
+
+    // checkbox.addEventListener('change', function () {
+    //     if (checkbox.checked) {
+    //     // do this
+    //     undelivered;
+    //     console.log('Checked');
+    //     } else {
+    //     // do that
+    //     console.log('Not checked');
+    //     }
+    // });
+    // };
 
 
     return(
@@ -84,11 +111,8 @@ function AdminPanel() {
             <h2 className='admin-title'>Beverage Express Admin Panel</h2>
             <h3 className='all-orders'>Delivery Orders</h3>
             
-            <div className='admin-orders'>
-                
-                {orders ? (
-                    <>
-                    <div className='switch-div'>
+            {/* <div className='admin-orders'>
+            <div className='switch-div'>
                     <p>Delivered</p>
                     <label class='switch'>
                         <input type='checkbox'></input>
@@ -96,6 +120,9 @@ function AdminPanel() {
                     </label>
                     <p>Undelivered</p>
                 </div>
+                {orders ? (
+                    <>
+                   
                         {orders.map((order) => (
                             <div className='admin-order-div'>
                                 <ul>
@@ -121,7 +148,7 @@ function AdminPanel() {
                        
                     </>
                 ): null}
-            </div>
+            </div> */}
         </>
     )
 }

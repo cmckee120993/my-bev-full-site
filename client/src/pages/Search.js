@@ -79,6 +79,20 @@ function Search(item) {
       }
     }
 
+    function titleCase(str) {
+        str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  let productName= str.join(' ');
+  
+  return (
+    <>
+        <h2>{productName}</h2>
+    </>
+  )
+};
+
     return (
         <>
             {/* page title */}
@@ -118,7 +132,7 @@ function Search(item) {
                                         alt="Beer Placeholder"
                                         className="beer-placeholder"
                                         />
-                                        <h2>{item.Description}</h2>
+                                        {titleCase(item.Description)}
                                     </Card.Header>
                                     <Card.Description className="beer-details">
                                         <p>Case: ${item.CaseRetail}</p>

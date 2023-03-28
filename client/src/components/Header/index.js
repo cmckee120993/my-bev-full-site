@@ -20,8 +20,8 @@ function Header() {
             {/* store phone and address */}
             <div className='locale'>
                 <a href='tel:7172412337' className='phone-number' target='_blank' rel='noreferrer'>717-241-2337</a>
-                <address>1021 Ritner Highway<br></br>
-                     Carlisle, PA 17013</address>
+                <address><a className='address-link' href='https://goo.gl/maps/YNwHwsxJ5qvTzRaXA' target='_blank' rel='noreferrer'>1021 Ritner Highway<br></br>
+                     Carlisle, PA 17013</a></address>
             </div>
                 <Cart />
             </div>

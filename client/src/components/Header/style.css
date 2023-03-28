@@ -42,8 +42,10 @@
     width: 30%;
 }
 
-.phone-number:hover {
+.phone-number:hover, .address-link:hover {
     background: var(--hover);
+    border-radius: 10px;
+    padding: 5px;
 }
 
 @media only screen and (min-width: 500px) {

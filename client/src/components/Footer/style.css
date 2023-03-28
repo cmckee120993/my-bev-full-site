@@ -23,7 +23,9 @@ footer {
 }
 
 .footer-icon:hover {
-    color: var(--hover);
+    background: var(--hover);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .site-creator {
@@ -56,6 +58,8 @@ footer {
 
 .creator-site:hover, .creator-email:hover {
     background-color: var(--hover);
+    border-radius: 10px;
+    padding: 5px;
 }
 
 @media only screen and (min-width: 700px) {

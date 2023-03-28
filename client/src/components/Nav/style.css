@@ -1,5 +1,5 @@
 /* removing universal background */
-.bm-menu-wrap, .bm-item-list, .bm-item {
+.bm-menu-wrap, .bm-item-list, .bm-item, .bm-burger-button {
   background: none;
 }
 
@@ -83,6 +83,9 @@
 .bm-item:hover {
     background: var(--hover);
     color: var(--secondary);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
 .nav-logo {

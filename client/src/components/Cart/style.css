@@ -24,9 +24,15 @@
     border-radius: 25px
 }
 
-.cart-image:hover, .toggle-cart:hover {
-    color: var(--hover);
+.cart-image:hover {
     cursor: pointer;
+    background: var(--hover);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.toggle-cart:hover {
+    color: var(--hover);
 }
 
 .cart-image {

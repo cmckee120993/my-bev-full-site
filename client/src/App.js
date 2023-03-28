@@ -25,7 +25,9 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import CustomerPanel from './pages/CustomerPanel';
-import AdminPanel from './pages/AdminPanel';
+import AdminPanel from './pages/AdminPanel/AdminPanel';
+import UndeliveredOrders from './pages/AdminPanel/undeliveredOrders';
+import DelieveredOrders from './pages/AdminPanel/deliveredOrders';
 import { StoreProvider } from './utils/GlobalState';
 
 const httpLink = createHttpLink ({
@@ -65,6 +67,8 @@ function App() {
             <Route path='/signup' element={<Signup />} />
             <Route path='/customerpanel' element={<CustomerPanel />} />
             <Route path='/adminpanel' element={<AdminPanel />} />
+            <Route path='/adminpanel/delievered' element={<DelieveredOrders />} />
+            <Route path='/adminpanel/undelivered' element={<UndeliveredOrders />} />
             <Route path='/search' element={<Search />} />
             <Route path='/seasonal' element={<Seasonal />} />
             <Route path='/contact' element={<Contact />} />

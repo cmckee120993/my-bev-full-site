@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6035f6ea.css",
+    "main.js": "/static/js/main.700929bd.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/bev-exp-news.webp": "/static/media/bev-exp-news.8216b7169e810423c15e.webp",
+    "static/media/bx-six-pack.webp": "/static/media/bx-six-pack.e4b8b864cab894d0037a.webp",
+    "static/media/bev-exp-header.webp": "/static/media/bev-exp-header.3b97fa2d0fc71e74cc85.webp",
+    "static/media/bx-beer-bottle.webp": "/static/media/bx-beer-bottle.93ab4cc2bc83305daf57.webp",
+    "static/media/navbar-image.webp": "/static/media/navbar-image.a7888717d167cb2d1e37.webp",
+    "static/media/bev-exp-logo.webp": "/static/media/bev-exp-logo.d456a9b0bb3a6baaebaf.webp",
+    "static/media/clays-logo.webp": "/static/media/clays-logo.3e66605f0d194fea0f7f.webp",
+    "index.html": "/index.html",
+    "main.6035f6ea.css.map": "/static/css/main.6035f6ea.css.map",
+    "main.700929bd.js.map": "/static/js/main.700929bd.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6035f6ea.css",
+    "static/js/main.700929bd.js"
+  ]
+}

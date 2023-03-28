@@ -62,12 +62,16 @@ margin-right: 90px;
 
 .signup-button {
     background-image: radial-gradient(#dee1e4, #aaa9ad) ;
-    color: #000C66;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px
+    width: 100px;
+    color: var(--secondary);
+    font-family: 'Dokdo', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10px;
 }
 
 .signup-button:hover {
-    background: #FFBF00;
-    color: white;
+    color: var(--primary);
+    background: var(--hover);
 }

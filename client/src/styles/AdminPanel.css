@@ -1,4 +1,4 @@
-.admin-title, .all-orders, .admin-orders, .admin-order-div, .admin-order-div ul, .admin-order-div li, .switch-div {
+.admin-title, .button-div, .button-div a, .all-orders, .admin-orders, .admin-order-div, .admin-order-div ul, .admin-order-div li, .switch-div {
     background: none;
 }
 
@@ -8,6 +8,26 @@
     text-align: center;
 }
 
+.button-div {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.button-div a {
+  background-image: radial-gradient(#dee1e4, #aaa9ad);
+  width: 150px;
+  text-align: center;
+  color: #000C66;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.button-div a:hover {
+  background: var(--hover)
+}
+
 .all-orders {
     font-family: 'Dokdo', cursive;
     font-size: 50px;
@@ -15,12 +35,16 @@
 }
 
 .order-change-button {
-    background: radial-gradient(#dee1e4, #aaa9ad) ;
+    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
     color: #000C66;
     font-family: 'Gloria Hallelujah', cursive;
     margin: auto;
     -webkit-text-stroke: 1px;
     margin: 10px 75px;
+}
+
+.order-change-button:hover {
+  background: var(--hover);
 }
 
 .admin-orders {
@@ -46,7 +70,7 @@
     width: 225px;
 }
 
-.switch-div {
+/* .switch-div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -59,7 +83,7 @@
     font-size: 40px;
 }
 /* The switch - the box around the slider */
-.switch {
+/* .switch {
     position: relative;
     display: inline-block;
     width: 60px;
@@ -67,56 +91,56 @@
   }
   
   /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+  /* .switch input { */
+    /* opacity: 0; */
+    /* width: 0; */
+    /* height: 0; */
+  /* } */
   
   /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+  /* .slider { */
+    /* position: absolute; */
+    /* cursor: pointer; */
+    /* top: 0; */
+    /* left: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+    /* background: #ccc; */
+    /* -webkit-transition: .4s; */
+    /* transition: .4s; */
+  /* } */
   
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+  /* .slider:before { */
+    /* position: absolute; */
+    /* content: ""; */
+    /* height: 26px; */
+    /* width: 26px; */
+    /* left: 4px; */
+    /* bottom: 4px; */
+    /* background-color: white; */
+    /* -webkit-transition: .4s; */
+    /* transition: .4s; */
+  /* } */
   
-  input:checked + .slider {
-    background-color: var(--hover);
-  }
+  /* input:checked + .slider { */
+    /* background-color: var(--hover); */
+  /* } */
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px silver;
-  }
+  /* input:focus + .slider { */
+    /* box-shadow: 0 0 1px silver; */
+  /* } */
   
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
+  /* input:checked + .slider:before { */
+    /* -webkit-transform: translateX(26px); */
+    /* -ms-transform: translateX(26px); */
+    /* transform: translateX(26px); */
+  /* } */
   
   /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
+  /* .slider.round { */
+    /* border-radius: 34px; */
+  /* } */
   
-  .slider.round:before {
-    border-radius: 50%;
-  }
+  /* .slider.round:before { */
+    /* border-radius: 50%; */
+  /* }   */

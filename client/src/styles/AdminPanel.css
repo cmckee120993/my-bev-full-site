@@ -25,13 +25,15 @@
 }
 
 .button-div a:hover {
-  background: var(--hover)
+  background: var(--hover);
+  color: white;
 }
 
 .all-orders {
     font-family: 'Dokdo', cursive;
     font-size: 50px;
     margin-left: 50px;
+    text-align: center;
 }
 
 .order-change-button {
@@ -40,11 +42,14 @@
     font-family: 'Gloria Hallelujah', cursive;
     margin: auto;
     -webkit-text-stroke: 1px;
-    margin: 10px 75px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 75%;
 }
 
 .order-change-button:hover {
   background: var(--hover);
+  color: white;
 }
 
 .admin-orders {
@@ -52,15 +57,20 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .admin-order-div {
-    background: white;
-    width: 360px;
-    border-radius: 25px;
-    margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: white solid 3px;
+  padding: 5px;
+  width: 300px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .admin-order-div li {
-    color: #000C66;
+    color: white;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 15px;
     -webkit-text-stroke: 1px;

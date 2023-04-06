@@ -46,6 +46,8 @@ const typeDefs = gql`
     orders: [Order]
     order(_id: ID!): Order
     user: User
+    trueUserOrders: [Order]
+    falseUserOrders: [Order]
     orderStatusFalse: [Order]
     orderStatusTrue: [Order]
   }

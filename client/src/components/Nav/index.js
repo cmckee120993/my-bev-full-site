@@ -16,7 +16,7 @@ function Navbar() {
     if (data) {
         user = data.user;
     };
-    console.log(data)
+
 
 
     function showNavigation() {

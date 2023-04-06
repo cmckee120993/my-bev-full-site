@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_USER } from  '../utils/queries';
+import { QUERY_USER } from  '../../utils/queries';
 import { useMutation } from '@apollo/client';
-import { UPDATE_USER } from '../utils/mutations';
-import '../styles/CustomerPanel.css'
+import { UPDATE_USER } from '../../utils/mutations';
+import '../../styles/CustomerPanel.css'
 
 function CustomerPanel() {
     const { data } = useQuery(QUERY_USER);
@@ -37,13 +37,37 @@ function CustomerPanel() {
     function orderStatus(status) {
         if(status === true) {
             return(
-                <li style={{background: 'green'}}>Delivery Status: Delivered</li>
+                <li style={{background: 'darkGreen', borderRadius: '10px'}}>Status: Delivered</li>
             )
         } else {
             return (
-                <li style={{background: 'red'}}>Delivery Status: Working on it!</li>
+                <li style={{background: 'darkRed', borderRadius: '10px'}}>Status: Working on it!</li>
             )
         }
+    };
+
+    function titleCase(str) {
+        str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  let productName= str.join(' ');
+  
+  return (
+    <>
+        <li>{productName}</li>
+    </>
+  )
+};
+
+ function deliveryDateChange(date) {
+      let delivDate = date.split('-');
+      let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
+      return (
+        <>
+            <li>Delivery Date: {fixedDate}</li>
+        </>
+      )
     };
 
     return (
@@ -87,31 +111,37 @@ function CustomerPanel() {
             </div>
         </form>
             <div className="orders">
+                <div className='order-button-div'>
+                    <a href='/customerpanel' style={{background: 'var(--hover)'}}>All Orders</a>
+                    <a href='/customerpanel/delivered'>Delivered</a>
+                    <a href='/customerpanel/undelivered'>Undelivered</a>
+                </div>
                 {user ? (
                 <>
                     <h2 className="order-history-title"> Order History for {user.firstName} {user.lastName}</h2>
                     {user.orders.map((order) => (
                         <div className='order-history-div'>
-                            <h3 className='order-date'>
+                            <h3 className='order-date'> Order Placed On:&nbsp;
                             {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                             </h3>
 
                             <div className='order-details'>
                                 <ul>
                                     <li>Person Picking Up Order: {order.orderOwner}</li>
-                                    <li>Delivery Date: {order.deliveryDate}</li>
+                                    <li>Delivery Date: {deliveryDateChange(order.deliveryDate)}</li>
                                     {orderStatus(order.orderStatus)}
-                                    <li>Total: ${order.orderTotal}</li>
+                                    
                                     <li>Products:</li>
                                     {order.products.map(({name, price, quantity}, index) => (
                                     <ul>
-                                        <li>{name}</li>
+                                        <li>{titleCase(name)}</li>
                                         <ul>
                                         <li>Price for One: {price}</li>
                                         <li>Quantity: {quantity}</li>
                                         </ul>
                                     </ul>
                                     ))}
+                                    <li>Total: ${order.orderTotal}</li>
                                 </ul>
                             </div>
                         </div>

@@ -78,7 +78,7 @@ function AdminPanel() {
             <li>Delivery Date: {fixedDate}</li>
         </>
       )
-    }
+    };
 
 
     return(

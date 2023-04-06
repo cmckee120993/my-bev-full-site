@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.update-form, .update-title, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li {
+.update-form, .update-title, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li, .order-button-div {
     background: none;
 }
 
@@ -40,7 +40,9 @@ margin-right: 90px;
     background-image: radial-gradient(#dee1e4, #aaa9ad) ;
     color: #000C66;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px
+    font-size: 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
 }
 
 .update-button:hover {
@@ -69,12 +71,14 @@ margin-right: 90px;
     flex-wrap: wrap;
     border: white solid 3px;
     padding: 5px;
-   
+    width: 300px;
+    margin: 10px;
 }
 
 .order-date {
     font-family: 'Dokdo', cursive;
     font-size: 40px;
+    text-align: center;
 }
 
 .order-details {
@@ -86,6 +90,28 @@ margin-right: 90px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
     margin-bottom: 20px;
 }
+
+.order-button-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.order-button-div a {
+    background-image: radial-gradient(#dee1e4, #aaa9ad);
+    width: 150px;
+    text-align: center;
+    color: #000C66;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  
+  .order-button-div a:hover {
+    background: var(--hover);
+    color: white;
+  }

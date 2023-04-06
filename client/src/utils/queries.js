@@ -25,6 +25,42 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USER_ORDER_TRUE = gql`
+query TrueUserOrders {
+  trueUserOrders {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+  }
+}
+`
+
+export const QUERY_USER_ORDER_FALSE = gql`
+query FalseUserOrders {
+  falseUserOrders {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+  }
+}
+`
+
 export const QUERY_ORDERS = gql`
 query Orders {
   orders {

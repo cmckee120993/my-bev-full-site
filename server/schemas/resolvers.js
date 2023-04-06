@@ -30,6 +30,20 @@ const resolvers = {
 			throw new AuthenticationError('Not logged in');
 		},
 
+		trueUserOrders: async (parent, args, context) => {
+			if (context.user) {
+				return Order.find({orderStatus: true});
+			}
+			throw new AuthenticationError('Not logged in');
+		},
+
+		falseUserOrders: async (parent, args, context) => {
+			if (context.user) {
+				return Order.find({orderStatus: false});
+			}
+			throw new AuthenticationError('Not logged in');
+		},
+
 	},
 
 	Mutation: {

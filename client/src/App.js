@@ -24,7 +24,9 @@ import Seasonal from './pages/Seasonal';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import CustomerPanel from './pages/CustomerPanel';
+import CustomerPanel from './pages/CustomerPanel/CustomerPanel';
+import UndeliveredCustomerOrders from './pages/CustomerPanel/UndeliveredCustomerOrders';
+import DeliveredCustomerOrders from './pages/CustomerPanel/DeliveredCustomerOrders';
 import AdminPanel from './pages/AdminPanel/AdminPanel';
 import UndeliveredOrders from './pages/AdminPanel/undeliveredOrders';
 import DelieveredOrders from './pages/AdminPanel/deliveredOrders';
@@ -66,6 +68,8 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/customerpanel' element={<CustomerPanel />} />
+            <Route path='/customerpanel/delivered' element={<DeliveredCustomerOrders />} />
+            <Route path='/customerpanel/undelivered' element={<UndeliveredCustomerOrders />} />
             <Route path='/adminpanel' element={<AdminPanel />} />
             <Route path='/adminpanel/delievered' element={<DelieveredOrders />} />
             <Route path='/adminpanel/undelivered' element={<UndeliveredOrders />} />

@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.update-form, .update-title, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li, .order-button-div {
+.update-form, .update-title, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li, .order-button-div, .order-history-email {
     background: none;
 }
 
@@ -114,4 +114,18 @@ margin-right: 90px;
   .order-button-div a:hover {
     background: var(--hover);
     color: white;
+  }
+
+  .order-history-email {
+    width: 100%;
+    text-align: center;
+    font-family: 'Dokdo', cursive;
+    font-size: 30px;
+    margin-top: -50px;
+  }
+
+  @media only screen and (min-width: 900px) {
+    .order-history-email {
+        font-size: 60px;
+    }
   }

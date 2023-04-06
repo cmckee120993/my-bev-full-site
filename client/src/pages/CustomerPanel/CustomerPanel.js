@@ -10,18 +10,38 @@ function CustomerPanel() {
     let user;
     if (data) {
         user = data.user;
+      
     };
 
     const [formState, setFormState] = useState({email: '', firstName: '', lastName: ''})
     const [updateUser] = useMutation(UPDATE_USER);
 
     const handleFormSubmit = async (event) => {
+        let email;
+        let firstName;
+        let lastName;
+
         event.preventDefault();
-        const mutationResponse = await updateUser ({
+        if (formState.email === '') {
+            email = user.email
+        } else {
+            email = formState.email
+        }
+        if (formState.firstName === '') {
+            firstName = user.firstName
+        } else {
+            firstName = formState.firstName
+        }
+        if (formState.lastName === '') {
+            lastName = user.lastName
+        } else {
+            lastName = formState.lastName
+        }
+         await updateUser ({
             variables: {
-                email: formState.email,
-                firstName: formState.firstName,
-                lastName: formState.lastName,
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
             },
         });
     };
@@ -32,6 +52,15 @@ function CustomerPanel() {
             ...formState,
             [name]: value,
         })
+    };
+
+    function resetForm() {
+        let emailValue = document.getElementById('email');
+        let firstNameValue = document.getElementById('firstName');
+        let lastNameValue = document.getElementById('lastName');
+        emailValue.value = '';
+        firstNameValue.value = '';
+        lastNameValue.value = '';
     };
 
     function orderStatus(status) {
@@ -72,7 +101,8 @@ function CustomerPanel() {
 
     return (
        <>
-        <h2 className='update-title'>Update User Info</h2>
+        <h2 className='update-title'>Customer Panel Home</h2>
+        <h3 className='update-title'>Update Information</h3>
         <form className='update-form' onSubmit={handleFormSubmit}>
             <div className='update-form-div'>
                 <div>
@@ -106,7 +136,7 @@ function CustomerPanel() {
                     />
                 </div>
                 <div className='update-button-div'>
-                    <button className='update-button' type="submit">Update</button>
+                    <button className='update-button' onClick={resetForm} type="submit">Update</button>
                 </div>
             </div>
         </form>
@@ -118,7 +148,8 @@ function CustomerPanel() {
                 </div>
                 {user ? (
                 <>
-                    <h2 className="order-history-title"> Order History for {user.firstName} {user.lastName}</h2>
+                    <h3 className="order-history-title"> Order History for {user.firstName} {user.lastName}</h3>
+                    <h3 className='order-history-email'>{user.email}</h3>
                     {user.orders.map((order) => (
                         <div className='order-history-div'>
                             <h3 className='order-date'> Order Placed On:&nbsp;

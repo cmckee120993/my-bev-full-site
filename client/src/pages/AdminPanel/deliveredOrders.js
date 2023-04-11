@@ -66,15 +66,15 @@ function DeliveredOrders() {
   )
 };
 
-    function deliveryDateChange(date) {
-      let delivDate = date.split('-');
-      let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
-      return (
-        <>
-            <li>Delivery Date: {fixedDate}</li>
-        </>
-      )
-    }
+    // function deliveryDateChange(date) {
+    //   let delivDate = date.split('-');
+    //   let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
+    //   return (
+    //     <>
+    //         <li>Delivery Date: {fixedDate}</li>
+    //     </>
+    //   )
+    // }
 
     return (
         <>
@@ -95,7 +95,7 @@ function DeliveredOrders() {
                                 <ul>
                                     <li>Order Owner: {order.orderOwner}</li>
                                     <li>Order Placed On: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</li>
-                                    {deliveryDateChange(order.deliveryDate)}
+                                    {order.deliveryDate}
                                     {orderStatus(order)}
                                     <li>Order Total: ${order.orderTotal}</li>
                                     <li>Products:</li>

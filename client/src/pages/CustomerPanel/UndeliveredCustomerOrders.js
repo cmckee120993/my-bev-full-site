@@ -32,15 +32,15 @@ function UndeliveredCustomerOrders() {
   )
 };
 
- function deliveryDateChange(date) {
-      let delivDate = date.split('-');
-      let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
-      return (
-        <>
-            <li>Delivery Date: {fixedDate}</li>
-        </>
-      )
-    };
+//  function deliveryDateChange(date) {
+//       let delivDate = date.split('-');
+//       let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
+//       return (
+//         <>
+//             <li>Delivery Date: {fixedDate}</li>
+//         </>
+//       )
+//     };
 
     return (
        <>
@@ -62,7 +62,7 @@ function UndeliveredCustomerOrders() {
                             <div className='order-details'>
                                 <ul>
                                     <li>Person Picking Up Order: {order.orderOwner}</li>
-                                    <li>Delivery Date: {deliveryDateChange(order.deliveryDate)}</li>
+                                    <li>Delivery Date: {order.deliveryDate}</li>
                                     {orderStatus(order.orderStatus)}
                                     
                                     <li>Products:</li>

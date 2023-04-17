@@ -7,7 +7,7 @@ console.log(googleAPI);
   return (
     <>
     <Autocomplete 
-    apiKey="AIzaSyAMCaxP6F-y0gi0RugCFluqm_9RT9TifAg"
+    apiKey={googleAPI}
     onPlaceSelected={(place) => {
       console.log(place);
     }}

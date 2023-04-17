@@ -46,13 +46,13 @@ function UndeliveredCustomerOrders() {
        <>
             <div className="orders">
                 <div className='order-button-div'>
-                    <a href='/customerpanel'>All Orders</a>
+                    <a href='/customerpanel' >All Orders</a>
                     <a href='/customerpanel/delivered'>Delivered</a>
                     <a href='/customerpanel/undelivered' style={{background: 'var(--hover)'}}>Undelivered</a>
                 </div>
                 {data ? (
                 <>
-                    <h2 className="order-history-title">Undelivered Orders</h2>
+
                     {data.falseUserOrders.map((order) => (
                         <div className='order-history-div'>
                             <h3 className='order-date'> Order Placed On:&nbsp;
@@ -61,17 +61,19 @@ function UndeliveredCustomerOrders() {
 
                             <div className='order-details'>
                                 <ul>
-                                    <li>Person Picking Up Order: {order.orderOwner}</li>
-                                    <li>Delivery Date: {order.deliveryDate}</li>
+                                    <li key={order.orderOwner}>Person Picking Up Order: {order.orderOwner}</li>
+                                    <li key={order.deliveryDate}>Delivery Date: {order.deliveryDate}</li>
+                                    <li key={order.address}>Address: {order.address}</li>
+                                    <li key={order.phoneNumber}>Phone Number: {order.phoneNumber}</li>
                                     {orderStatus(order.orderStatus)}
                                     
                                     <li>Products:</li>
                                     {order.products.map(({name, price, quantity}, index) => (
                                     <ul>
-                                        <li>{titleCase(name)}</li>
+                                        {titleCase(name)}
                                         <ul>
-                                        <li>Price for One: {price}</li>
-                                        <li>Quantity: {quantity}</li>
+                                        <li key={price}>Price for One: {price}</li>
+                                        <li key={quantity}>Quantity: {quantity}</li>
                                         </ul>
                                     </ul>
                                     ))}

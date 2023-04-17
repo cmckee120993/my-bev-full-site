@@ -20,8 +20,10 @@ export const QUERY_USER = gql`
       }
       orderTotal
       orderStatus
-      }
+      address
+      phoneNumber
     }
+  }
   }
 `;
 
@@ -39,6 +41,8 @@ query TrueUserOrders {
     }
     orderTotal
     orderStatus
+    address
+    phoneNumber
   }
 }
 `
@@ -57,6 +61,8 @@ query FalseUserOrders {
     }
     orderTotal
     orderStatus
+    address
+    phoneNumber
   }
 }
 `
@@ -75,6 +81,8 @@ query Orders {
     }
     orderTotal
     orderStatus
+    address
+    phoneNumber
   }
 }`;
 
@@ -92,6 +100,8 @@ query OrderStatusFalse {
     }
     orderTotal
     orderStatus
+    address
+    phoneNumber
   }
 }`;
 
@@ -109,6 +119,8 @@ query OrderStatusTrue {
     }
     orderTotal
     orderStatus
+    address
+    phoneNumber
   }
 }
 `;

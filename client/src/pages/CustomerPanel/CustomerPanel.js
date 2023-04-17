@@ -83,7 +83,7 @@ function CustomerPanel() {
   
   return (
     <>
-        <li>{productName}</li>
+        <li key={productName}>{productName}</li>
     </>
   )
 };
@@ -157,17 +157,19 @@ function CustomerPanel() {
 
                             <div className='order-details'>
                                 <ul>
-                                    <li>Person Picking Up Order: {order.orderOwner}</li>
-                                    <li>Delivery Date: {order.deliveryDate}</li>
+                                    <li key={order.orderOwner}>Person Picking Up Order: {order.orderOwner}</li>
+                                    <li key={order.deliveryDate}>Delivery Date: {order.deliveryDate}</li>
+                                    <li key={order.address}>Address: {order.address}</li>
+                                    <li key={order.phoneNumber}>Phone Number: {order.phoneNumber}</li>
                                     {orderStatus(order.orderStatus)}
                                     
                                     <li>Products:</li>
                                     {order.products.map(({name, price, quantity}, index) => (
                                     <ul>
-                                        <li>{titleCase(name)}</li>
+                                        {titleCase(name)}
                                         <ul>
-                                        <li>Price for One: {price}</li>
-                                        <li>Quantity: {quantity}</li>
+                                        <li key={price}>Price for One: {price}</li>
+                                        <li key={quantity}>Quantity: {quantity}</li>
                                         </ul>
                                     </ul>
                                     ))}

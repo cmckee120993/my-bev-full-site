@@ -85,6 +85,7 @@ const UndeliveredOrders = () => {
                 <a href='/adminpanel/delievered'>Delivered</a>
                 <a href='/adminpanel/undelivered' style={{background: 'var(--hover)'}}>Undelivered</a>
             </div>
+    
             
             <div className='admin-orders'>  
                 {orders ? (
@@ -93,18 +94,20 @@ const UndeliveredOrders = () => {
                         {orders.map((order) => (
                             <div className='admin-order-div'>
                                 <ul>
-                                    <li>Order Owner: {order.orderOwner}</li>
-                                    <li>Order Placed On: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</li>
-                                    {order.deliveryDate}
+                                    <li key={order.orderOwner}>Order Owner: {order.orderOwner}</li>
+                                    <li key={order.purchaseDate}>Order Placed On: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</li>
+                                    <li key={order.deliveryDate}>Delivery Date: {order.deliveryDate}</li>
+                                    <li key={order.address}>Address: {order.address}</li>
+                                    <li key={order.phoneNumber}>Phone Number: {order.phoneNumber}</li>
                                     {orderStatus(order)}
-                                    <li>Order Total: ${order.orderTotal}</li>
+                                    <li key={order.orderTotal}>Order Total: ${order.orderTotal}</li>
                                     <li>Products:</li>
                                         {order.products.map(({ name ,price, quantity}, index) => (
                                             <ul>
                                                 {titleCase(name)}
                                                 <ul>
-                                                    <li>Price: ${price}</li>
-                                                    <li>Quantity: {quantity}</li>
+                                                    <li key={price}>Price: ${price}</li>
+                                                    <li key={quantity}>Quantity: {quantity}</li>
                                                 </ul>
                                             </ul>
                                         ))}

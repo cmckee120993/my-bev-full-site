@@ -17,6 +17,8 @@ import sixPack from '../assets/images/bx-six-pack.webp';
 // placeholder image until database is updated
 import bottle from '../assets/images/bx-beer-bottle.webp';
 
+
+
 function Search(item) {
     const [APIData, setAPIData] = useState([]);
 

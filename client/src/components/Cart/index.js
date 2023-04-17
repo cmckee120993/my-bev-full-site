@@ -11,6 +11,7 @@ import { ADD_ORDER } from '../../utils/mutations';
 // Imports from components
 import CartItem from '../CartItem';
 import Calendar from '../Calendar';
+// import AutoComplete from '../AddressFormComp';
 
 // Import styles and images
 import './style.css';
@@ -50,10 +51,11 @@ const Cart = () => {
     // Send order from cart to database
     function sendOrder() {
         const deliveryDate = document.querySelector('.date-picker').value;
-        console.log(deliveryDate)
         const orderOwner = document.querySelector('.order-owner').value;
         const orderTotal = parseFloat(document.querySelector('.cart-total').textContent);
         const orderStatus = false;
+        const address = document.querySelector('.address').value;
+        const phoneNumber = document.querySelector('.phone').value;
         const products = [];
         state.cart.forEach((item) => {
             products.push({
@@ -68,15 +70,14 @@ const Cart = () => {
                 orderOwner,
                 orderTotal,
                 products,
-                orderStatus
+                orderStatus,
+                address,
+                phoneNumber
             }
         });
         document.location.href = '/customerpanel';     
     };
 
-
-let calendar = document.querySelector('deliv-date');
-console.log(calendar);
     if (!state.cartOpen) {
         return (
             <div className="cart-div-closed" onClick={toggleCart}>
@@ -108,9 +109,13 @@ console.log(calendar);
                         </div>
                         <label>Delivery Date:</label>
                         <Calendar />
-                        {/* <input className="deliv-date" type="date"></input> */}
                         <label>Name:</label>
                         <input className="order-owner" type="text"></input>
+                        <label>Phone Number:</label>
+                        <input className="phone" type="text"></input>
+                        <label>Address:</label>
+                        <input className="address" type="text"></input>
+                        {/* <AutoComplete /> */}
                         {Auth.loggedIn() ? (
                             <button className="cart-button" onClick={sendOrder}>Send Order</button>
                         ) : (

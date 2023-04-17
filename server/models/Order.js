@@ -21,6 +21,14 @@ const orderSchema = new Schema({
         min: 0.01,
         required: true
     },
+    address: {
+        type: String,
+        required: true
+    },
+    phoneNumber:{
+        type: String,
+        required: true
+    },
     products: [Product.schema],
     orderStatus: {
         type: Boolean,

@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "moment": "^2.29.4",
-    "stripe": "^11.4.0"
+    "moment": "^2.29.4"
   }
 }

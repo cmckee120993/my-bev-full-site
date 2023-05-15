@@ -44,7 +44,7 @@ function Footer() {
             </div>
                 
             <div className='site-creator-contact'>
-                <a className='creator-site' href='www.clayscreativesolutions.com' target='_blank' rel='noreferrer'>www.clayscreativesolutions.com</a>
+                <a className='creator-site' href='https://www.clayscreativesolutions.com' target='_blank' rel='noreferrer'>www.clayscreativesolutions.com</a>
                 <a className='creator-email' href='mailto: clayscreativesolutions@gmail.com' target='_blank' rel='noreferrer'>clayscreativesolutions@gmail.com</a>
             </div>
             

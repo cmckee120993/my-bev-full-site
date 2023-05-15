@@ -99,7 +99,29 @@ const Cart = () => {
                         {state.cart.map((item) => (
                             <CartItem key={item.name} item={item} />
                         ))}
-                    
+                    <div className='addons'>
+                        <p>Would you like to add any of these to your order?</p>
+                        <div className='product-addon'>
+                            <p>Keg Tap Rental</p>
+                            <p>PRICE</p>
+                            <button className='button'>Add</button>
+                        </div>
+                        <div className='product-addon'>
+                            <p>Tub Rental</p>
+                            <p>PRICE</p>
+                            <button className='button'>Add</button>
+                        </div>
+                        <div className='product-addon'>
+                            <p>Ice (20lb.)</p>
+                            <p>PRICE</p>
+                            <button className='button'>Add</button>
+                        </div>
+                        <div className='product-addon'>
+                            <p>Ice (8lb.)</p>
+                            <p>PRICE</p>
+                            <button className='button'>Add</button>
+                        </div>
+                    </div>
                     <div className="cart-input-div">
                         <div className="total-div">
                             <label>

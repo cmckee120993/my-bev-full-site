@@ -8,7 +8,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// hamburger menu
 // styling for whole app
 import './App.css';
 

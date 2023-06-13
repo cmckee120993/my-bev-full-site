@@ -58,7 +58,7 @@ function Search(item) {
     const addToCart = (event) => {
      
     let cartButton = event.target;
-    let itemName = cartButton.getAttribute('itemname');
+    let itemName = cartButton.getAttribute('itemName');
     let itemPrice = cartButton.getAttribute('itemPrice');
     
       const itemInCart = cart.find((cartItem) => cartItem.name === itemName)
@@ -143,7 +143,7 @@ function Search(item) {
                                         <p>{item.Category}</p>
                                     </Card.Description>
                                 </Card.Content>
-                                <button itemname={item.Description} itemprice={item.CaseRetail} onClick={addToCart} className="cart-button">Add to Cart</button>
+                                <button itemName={item.Description} itemPrice={item.CaseRetail} onClick={addToCart} className="cart-button">Add to Cart</button>
                             </Card>
                         );
                     })}

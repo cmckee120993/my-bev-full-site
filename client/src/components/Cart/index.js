@@ -7,6 +7,7 @@ import { TOGGLE_CART } from '../../utils/actions';
 import Auth from '../../utils/auth';
 import { idbPromise } from '../../utils/helpers';
 import { ADD_ORDER } from '../../utils/mutations';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 
 // Imports from components
 import CartItem from '../CartItem';
@@ -20,9 +21,39 @@ import {faCartShopping} from "@fortawesome/free-solid-svg-icons";
 
 const Cart = () => {
 
-    // Cart and Mutations
-    const [state, dispatch] = useStoreContext();
-    const [addOrder] = useMutation(ADD_ORDER);
+    
+      // Cart and Mutations
+      const [state, dispatch] = useStoreContext();
+      const [addOrder] = useMutation(ADD_ORDER);
+      const { cart } = state;
+      
+    const addToCart = (event) => {
+        let item;
+        let cartButton = event.target;
+        let itemName = cartButton.getAttribute('itemName');
+        let itemPrice = cartButton.getAttribute('itemPrice');
+        
+          const itemInCart = cart.find((cartItem) => cartItem.name === itemName)
+          if(itemInCart) {
+            dispatch({
+              type: UPDATE_CART_QUANTITY,
+              name: itemName,
+              purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            });
+            idbPromise ('cart', 'put', {
+              ...itemInCart,
+              purchaseQuantity: parseInt(itemInCart.purchaseQuantity) +1
+            });
+          } else {
+            dispatch({
+              type: ADD_TO_CART,
+              product: { name: itemName, price: itemPrice,  purchaseQuantity: 1 }
+            });
+            idbPromise('cart', 'put', { ...item, purchaseQuantity: 1});
+          }
+        }
+
+  
 
     useEffect(() => {
         async function getCart() {
@@ -86,6 +117,63 @@ const Cart = () => {
         );
     }
     
+    function addOn() {
+        let itemTypeArray = [];
+        state.cart.forEach((item) => {
+            let itemName = item.name;
+        let itemSplit = itemName.split(' ')
+        let itemLength = itemSplit.length-1;
+        
+        itemTypeArray.push(itemSplit[itemLength]);
+       
+        })
+        
+        if(itemTypeArray.includes('KEG')) {
+            return (
+                <>
+                <div className='addons'>
+                        <p>Would you like to add any of these to your order?</p>
+                        <div className='product-addon'>
+                            <p>Tap Rental & Deposit</p>
+                            <p>$31.00</p>
+                            <button itemName='Tap Rental & Deposit' itemPrice='31.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                        </div>
+                        <div className='product-addon'>
+                            <p>Tub Rental & Deposit</p>
+                            <p>$21.00</p>
+                            <button itemName='Tub Rental & Deposit' itemPrice='21.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                        </div>
+                        <div className='product-addon'>
+                        <p>Ice (20lb.)</p>
+                        <p>$5.00</p>
+                        <button itemName='Ice (20lbs.)' itemPrice='5.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                    </div>
+                    <div className='product-addon'>
+                        <p id='name'>Ice (8lb.)</p>
+                        <p id='price'>$2.50</p>
+                        <button itemName='Ice (8lbs.)' itemPrice='2.50' onClick={addToCart} className="cart-button">Add to Cart</button>
+                    </div>
+                    </div>
+                
+                </>
+            )
+        } else {
+            return(
+                <>
+                    <div className='product-addon'>
+                        <p>Ice (20lb.)</p>
+                        <p>$5.00</p>
+                        <button itemName='Ice (20lbs.)' itemPrice='5.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                    </div>
+                    <div className='product-addon'>
+                        <p id='name'>Ice (8lb.)</p>
+                        <p id='price'>$2.50</p>
+                        <button itemName='Ice (8lbs.)' itemPrice='2.50' onClick={addToCart} className="cart-button">Add to Cart</button>
+                    </div>
+                </>
+            )
+        }
+    };
 
     return (
         <>
@@ -96,32 +184,15 @@ const Cart = () => {
                 <h2 className="cart-title">Shopping Cart</h2>
                 {state.cart.length ? (
                     <div className="cart-info">
-                        {state.cart.map((item) => (
+                        {state.cart.map((item) => {
+                            return(
+                                <>
                             <CartItem key={item.name} item={item} />
-                        ))}
-                    <div className='addons'>
-                        <p>Would you like to add any of these to your order?</p>
-                        <div className='product-addon'>
-                            <p>Keg Tap Rental</p>
-                            <p>PRICE</p>
-                            <button className='button'>Add</button>
-                        </div>
-                        <div className='product-addon'>
-                            <p>Tub Rental</p>
-                            <p>PRICE</p>
-                            <button className='button'>Add</button>
-                        </div>
-                        <div className='product-addon'>
-                            <p>Ice (20lb.)</p>
-                            <p>PRICE</p>
-                            <button className='button'>Add</button>
-                        </div>
-                        <div className='product-addon'>
-                            <p>Ice (8lb.)</p>
-                            <p>PRICE</p>
-                            <button className='button'>Add</button>
-                        </div>
-                    </div>
+                            
+                            </>
+                            )
+                        })}
+                        {addOn()}
                     <div className="cart-input-div">
                         <div className="total-div">
                             <label>

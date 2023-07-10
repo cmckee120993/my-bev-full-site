@@ -11,8 +11,11 @@ import './style.css';
 import bottle from '../../assets/images/bx-beer-bottle.webp';
 
 function Navbar() {
+
     const { data } = useQuery(QUERY_USER);
+    
     let user;
+    
     if (data) {
         user = data.user;
     };
@@ -20,11 +23,12 @@ function Navbar() {
 
 
     function showNavigation() {
+
         if(Auth.loggedIn()) {
             return (
                 <>
                     <a onClick={() => Auth.logout()} className='bm-item menu-item' href='/'>
-                    Logout
+                        Logout
                     </a>
                 </>
             )
@@ -41,7 +45,8 @@ function Navbar() {
                 </>
             )
         }
-    }
+    };
+
     function userTypeNav() {
         if (user === undefined) {
             return (
@@ -60,7 +65,8 @@ function Navbar() {
                 </a>
             )
         }
-    }
+    };
+    
     return ( 
         <Menu>
             <a className='menu-item' href='/'>

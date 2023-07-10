@@ -1,6 +1,32 @@
-.header-title, .header-logo, .header-logo img, .locale, .phone-number, .locale address, .header-border, .header-image {
+.header-title, .header-logo, .header-logo img, .locale, .phone-number, .address-div, address,  .locale address, .header-border, .header-image {
     background: none;
 }
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+} 
+
+.header-logo img {
+    width: 220px;
+    height: 30px;
+}
+
+.locale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.address-div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
 
 .header-image {
     width: 360px;
@@ -15,26 +41,7 @@
     justify-content: center;
 }
 
-.header-logo {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 25px;
-} 
-
-.locale {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.header-logo img {
-    width: 220px;
-    height: 30px;
-}
-
-.phone-number, address {
+.phone-number, .address-link {
     margin: 10px 0px;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 10px;
@@ -42,28 +49,31 @@
     width: 30%;
 }
 
-.phone-number:hover, .address-link:hover {
-    background: var(--hover);
-    border-radius: 10px;
-    padding: 5px;
+.header-image {
+    width: 365px;
+    height: 223px;
+    margin-bottom: -5px;
+}
+
+.header-border {
+    width: 100%;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 @media only screen and (min-width: 500px) {
     .header-image {
         width: 100%;
     }
-    .header-logo img {
-        width: 330px;
-        height: 40px;
-    }
 
-    .phone-number, address {
+    .phone-number, .address-link {
         font-size: 15px;
     }
 }
 
 @media only screen and (min-width: 700px) {
-    .phone-number, address {
+    .phone-number, .address-link {
         font-size: 20px;
     }
 }

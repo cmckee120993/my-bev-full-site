@@ -33,6 +33,7 @@ const typeDefs = gql`
     orderStatus: Boolean
     address: String
     phoneNumber: String
+    orderType: String
   }
 
   type Auth {
@@ -62,7 +63,7 @@ const typeDefs = gql`
       password: String!
       admin: Boolean
     ): Auth
-    addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!, orderStatus: Boolean!, products: [ProductInput]!, phoneNumber: String!, address: String!): Order
+    addOrder(orderOwner: String!, deliveryDate: String!, orderTotal: Float!, orderStatus: Boolean!, products: [ProductInput]!, phoneNumber: String!, address: String!, orderType: String!): Order
     updateUser(
       firstName: String
       lastName: String

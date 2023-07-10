@@ -26,7 +26,7 @@ const Cart = () => {
       const [state, dispatch] = useStoreContext();
       const [addOrder] = useMutation(ADD_ORDER);
       const { cart } = state;
-      
+
     const addToCart = (event) => {
         let item;
         let cartButton = event.target;
@@ -79,14 +79,47 @@ const Cart = () => {
         return sum.toFixed(2);
     }
 
+    function deliverMethod() {
+
+        let deliv = document.querySelector('.switch-input').checked;
+        let delivDiv = document.querySelector('.deliv-method-div');
+        if (deliv === false) {
+            
+            delivDiv.innerHTML =
+                `<div className='method-div' value='Delivery'>
+                        <label>Address:</label>
+                        <input className="address" type="text"></input>
+                        </div>`
+            
+        } if (deliv === true) {
+
+            delivDiv.innerHTML =
+                `
+                <div className='method-div' value='Pickup'>
+                       </div>`
+        }
+    };
+
+
     // Send order from cart to database
     function sendOrder() {
         const deliveryDate = document.querySelector('.date-picker').value;
         const orderOwner = document.querySelector('.order-owner').value;
         const orderTotal = parseFloat(document.querySelector('.cart-total').textContent);
         const orderStatus = false;
-        const address = document.querySelector('.address').value;
+        let addressInput = document.querySelector('.address').value;
+        let address; 
+        if (address) {
+            address = addressInput;
+        } else {
+            address = "Pickup";
+        }
         const phoneNumber = document.querySelector('.phone').value;
+        const deliv = document.querySelector('.method-div');
+       let orderType = deliv.getAttribute('value');
+       console.log("hello");
+       console.log(orderOwner);
+        console.log(deliveryDate);
         const products = [];
         state.cart.forEach((item) => {
             products.push({
@@ -103,10 +136,11 @@ const Cart = () => {
                 products,
                 orderStatus,
                 address,
-                phoneNumber
+                phoneNumber,
+                orderType
             }
         });
-        document.location.href = '/customerpanel';     
+        // document.location.href = '/customerpanel';     
     };
 
     if (!state.cartOpen) {
@@ -200,14 +234,27 @@ const Cart = () => {
                             </label>
                             <p className='cart-total'>{calculateTotal()}</p>
                         </div>
+                        <div className='slider-div'>
+                        <p>Delivery</p>
+                        <label class="switch">
+                            <input className='switch-input' type="checkbox" value='delivery' onClick={deliverMethod}/>
+                            <span class="slider round"></span>  
+                        </label>
+                        <p>Pickup</p>
+                        </div>
                         <label>Delivery Date:</label>
                         <Calendar />
                         <label>Name:</label>
                         <input className="order-owner" type="text"></input>
                         <label>Phone Number:</label>
                         <input className="phone" type="text"></input>
+                        <div className='deliv-method-div'>
+                        <div className='method-div' value='Delivery'>
                         <label>Address:</label>
                         <input className="address" type="text"></input>
+                        </div>
+                        </div>
+                        
                         {/* <AutoComplete /> */}
                         {Auth.loggedIn() ? (
                             <button className="cart-button" onClick={sendOrder}>Send Order</button>
@@ -222,6 +269,7 @@ const Cart = () => {
                     </h3>
                 )}
             </div>
+            
         </>
     );
 };

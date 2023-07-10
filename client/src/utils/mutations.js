@@ -38,8 +38,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation AddOrder($orderOwner: String!, $deliveryDate: String!, $orderTotal: Float!, $orderStatus: Boolean!, $products: [ProductInput]!, $phoneNumber: String!, $address: String!) {
-  addOrder(orderOwner: $orderOwner, deliveryDate: $deliveryDate, orderTotal: $orderTotal, orderStatus: $orderStatus, products: $products, phoneNumber: $phoneNumber, address: $address) {
+  mutation addOrder($orderOwner: String!, $deliveryDate: String!, $orderTotal: Float!, $orderStatus: Boolean!, $products: [ProductInput]!, $phoneNumber: String!, $address: String!, $orderType: String!) {
+  addOrder(orderOwner: $orderOwner, deliveryDate: $deliveryDate, orderTotal: $orderTotal, orderStatus: $orderStatus, products: $products, phoneNumber: $phoneNumber, address: $address, orderType: $orderType) {
     _id
     purchaseDate
     deliveryDate
@@ -53,6 +53,7 @@ export const ADD_ORDER = gql`
     orderStatus
     address
     phoneNumber
+    orderType
   }
 }
 `;

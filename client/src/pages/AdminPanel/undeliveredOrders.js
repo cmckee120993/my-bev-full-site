@@ -99,6 +99,7 @@ const UndeliveredOrders = () => {
                                     <li key={order.deliveryDate}>Delivery Date: {order.deliveryDate}</li>
                                     <li key={order.address}>Address: {order.address}</li>
                                     <li key={order.phoneNumber}>Phone Number: {order.phoneNumber}</li>
+                                    <li key={order.orderType}>Order Type: {order.orderType}</li>
                                     {orderStatus(order)}
                                     <li key={order.orderTotal}>Order Total: ${order.orderTotal}</li>
                                     <li>Products:</li>

@@ -11,7 +11,7 @@
 
 .untappd-title {
     color: var(--primary);
-    font-family: 'Dokdo', cursive;
+    font-family: 'Dokdo', arial;
     font-size: 30px;
     margin-left: 10px;
     text-align: center;
@@ -22,9 +22,9 @@
     margin: 25px;
 }
 
-.menu-container {
-    width: 75%;
+iframe {
     margin: auto;
+    display: block;
 }
 
 

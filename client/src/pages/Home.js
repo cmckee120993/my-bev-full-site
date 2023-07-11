@@ -51,26 +51,28 @@ function Home() {
                             field="email"
                             errors={state.errors}
                         />
-                        
-                        <button onClick={clear} type="submit" disabled={state.submitting}>
-                        Submit
-                        </button>
+                        <div className='button-div'>
+                            <button className='button' onClick={clear} type="submit" disabled={state.submitting}>
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
                 
-                {/* sotre news */}
+                {/* store news */}
                 <div className='store-news'>
                     <h3 className='news-title'>New on Tap at Bev Exp!</h3>
                     <p className='news-description'>
-                        We've already got a whole lotta beer, but we want to say the same thing about our slushies. To make that happen, 
-                        we just added in some new slushy machines with new flavors! Check out our <a href='/seasonal' className='external-link'>
-                        "What's On Tap?"</a> page to keep up with our latest options. 
-                        Stay up to date with other news on our <a className='external-link' href='https://www.facebook.com/wholelottabeer/'>Facebook</a> and our <a className='external-link' href='https://www.instagram.com/bevexcarlisle/'>Instagram</a>.
+                    This week is a super sale at Beverage Express! Save big on Shiner Bock cans ($28.99 24pk / $14.99 12pk), bigger on Bell's Variety cans ($35.99 24pk / $18.99 12pk), and biggest on Oberon Variety cans ($33.99 24pk / $17.99 12pk). Stop in and stock up while supplies last. Check back in next week for our next weekly sale!
+
+                    These beers not your thing? Make sure to check Beverage Express's  <a className='link' href='https://www.facebook.com/wholelottabeer' target='_blank' rel='noreferrer'>Facebook</a>, &nbsp; 
+                    <a className='link' href='https://www.instagram.com/bevexcarlisle/'>Instagram</a>, or website each week for the next deal!
                     </p>
                     <img 
+                    loading='lazy'
                     className='recent-news'
                     src={News}
-                    alt='Beverage Express Van Decal'
+                    alt='Mich Ultra Deal'
                     />
                 </div>
             </div>

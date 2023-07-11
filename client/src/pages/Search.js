@@ -52,14 +52,38 @@ function Search(item) {
         };
     };
 
+    function imageSelector(img) {
+        if(img === "") {
+            return (
+            <img
+                loading='lazy'
+                src={bottle}
+                alt="Beer Placeholder"
+                className="beer-placeholder"
+                key='beerImg'
+            />
+            )
+        } else {
+            return (
+            <img
+                loading='lazy'
+                src={img}
+                alt="Beer Placeholder"
+                className="beer-img"
+                key={img}
+            />
+            )
+        }
+    };
+
     const [state, dispatch] = useStoreContext();
     const { cart } = state;
     
     const addToCart = (event) => {
      
     let cartButton = event.target;
-    let itemName = cartButton.getAttribute('itemName');
-    let itemPrice = cartButton.getAttribute('itemPrice');
+    let itemName = cartButton.getAttribute('itemname');
+    let itemPrice = cartButton.getAttribute('itemprice');
     
       const itemInCart = cart.find((cartItem) => cartItem.name === itemName)
       if(itemInCart) {
@@ -79,7 +103,8 @@ function Search(item) {
         });
         idbPromise('cart', 'put', { ...item, purchaseQuantity: 1});
       }
-    }
+    };
+
 
     function titleCase(str) {
         str = str.toLowerCase().split(' ');
@@ -90,10 +115,57 @@ function Search(item) {
   
   return (
     <>
-        <h2>{productName}</h2>
+        <h2 key={productName}>{productName}</h2>
     </>
   )
 };
+
+function productCard(item) {
+    // console.log(item);
+    let productType = item.Name;
+    let nameArray = productType.split(" ");
+    let keg = nameArray.pop();
+    if (keg.toString() === "KEG") {
+        return(
+            <>
+            <Card className="card">
+                <Card.Content>
+                    <Card.Header className="beer-name">
+                        {imageSelector(item.Notes)}
+                        {titleCase(item.Description)}
+                    </Card.Header>
+                    <Card.Description className="beer-details">
+                        <p key={item.SkuNumber}>Keg Price: ${item.CaseRetail}</p>
+                        <p key={item.QuantityAvailable}>Stock: {item.QuantityAvailable}</p>
+                        <p key={item.Category}>{item.Category}</p>
+                    </Card.Description>
+                </Card.Content>
+                <button itemname={item.Description} itemprice={item.CaseRetail} onClick={addToCart} className="button">Add to Cart</button>
+            </Card>
+            </>
+        )
+    } else {
+        return(
+            <>
+            <Card className="card">
+                <Card.Content>
+                    <Card.Header className="beer-name">
+                        {imageSelector(item.Notes)}
+                        {titleCase(item.Description)}
+                    </Card.Header>
+                    <Card.Description className="beer-details">
+                        <p key={item.Description}>Case: ${item.CaseRetail}</p>
+                        <p key={item.Retail}>{item.Size}: ${item.Retail}</p>
+                        <p key={item.QuantityAvailable}>Stock: {item.QuantityAvailable}</p>
+                        <p key={item.Category}>{item.Category}</p>
+                    </Card.Description>
+                </Card.Content>
+                <button itemname={item.Description} itemprice={item.CaseRetail} onClick={addToCart} className="button">Add to Cart</button>
+            </Card>
+            </>
+        )
+    }
+}
 
     return (
         <>
@@ -101,6 +173,7 @@ function Search(item) {
             <div className='search-title-div'>
                 <h2 className='search-title'>Product Search</h2>
                 <img
+                    loading='lazy'
                     className='search-header-image'
                     src={sixPack}
                     alt='Beverage Express Six Pack Logo'
@@ -116,7 +189,7 @@ function Search(item) {
                 onKeyDown={keyDown}
                 >
                 </input>
-                <button type="submit" className="search-button" onClick={searchItem}>
+                <button type="submit" className="button" onClick={searchItem}>
                 Search
                 </button>
             </div>
@@ -126,30 +199,20 @@ function Search(item) {
                 <Card.Group className="ui-card-div">
                     {APIData.map((item) => {
                         return (
-                            <Card className="card">
-                                <Card.Content>
-                                     <Card.Header className="beer-name">
-                                        <img
-                                        src={bottle}
-                                        alt="Beer Placeholder"
-                                        className="beer-placeholder"
-                                        />
-                                        {titleCase(item.Description)}
-                                    </Card.Header>
-                                    <Card.Description className="beer-details">
-                                        <p>Case: ${item.CaseRetail}</p>
-                                        <p>{item.Size}: ${item.Retail}</p>
-                                        <p>Stock: {item.QuantityAvailable}</p>
-                                        <p>{item.Category}</p>
-                                    </Card.Description>
-                                </Card.Content>
-                                <button itemName={item.Description} itemPrice={item.CaseRetail} onClick={addToCart} className="cart-button">Add to Cart</button>
-                            </Card>
+                            <>
+                                {productCard(item)}
+                            </>
                         );
                     })}
                 </Card.Group>
             </div>
-            <p className='slushy-products'>To see a list of our current slushy flavors, beers on tap, and seasonal beers, please go to our <a href='/seasonal' className='internal-link'>What's On Tap Page</a>.</p>
+            <p className='page-description'>Use this search bar to browse the Beverage Express catalogue to see if we have your favorite products in stock. 
+                With Carlisle's biggest selection of imported, domestic, and craft brews, this search can help you check to see if
+                we have a product in stock or if it's available from our wholesale distributors. Don't forget, you can always &nbsp; 
+                <a className='link' href='tel:7172412337' rel='noreferrer' target='_blank'>call us</a> with any questions you may have.
+            </p>
+            
+            <a href='/seasonal' className='link'><p className='button to-page'>To see a list of our current slushy flavors, beers on tap, and seasonal beers, please go to our What's On Tap Page.</p></a>
         </>
     )
 };

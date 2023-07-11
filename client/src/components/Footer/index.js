@@ -3,7 +3,6 @@ import React from 'react';
 // fontawesome set up
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 // style and logo imports
 import './style.css';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -16,9 +15,8 @@ import clayLogo from '../../assets/images/clays-logo.webp';
 function Footer() {
     return(
         <footer>
-
-          {/* Bev Exp Name Logo */}
-          <div className='footer-logo'>
+            {/* Bev Exp Name Logo */}
+            <div className='footer-logo'>
                 <img 
                     src={beerLogo}
                     alt='Beverage Express Name Beer Logo'

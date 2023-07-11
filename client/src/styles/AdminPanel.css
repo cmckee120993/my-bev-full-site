@@ -1,11 +1,5 @@
-.admin-title, .button-div, .button-div a, .all-orders, .admin-orders, .admin-order-div, .admin-order-div ul, .admin-order-div li, .switch-div {
+.admin-title, .button-div, .all-orders, .admin-orders, .admin-order-div, .admin-order-div ul, .admin-order-div li, .switch-div {
     background: none;
-}
-
-.admin-title {
-    font-family: 'Dokdo', cursive;
-    font-size: 50px;
-    text-align: center;
 }
 
 .button-div {
@@ -15,41 +9,15 @@
 }
 
 .button-div a {
-  background-image: radial-gradient(#dee1e4, #aaa9ad);
-  width: 150px;
-  text-align: center;
-  color: #000C66;
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.button-div a:hover {
-  background: var(--hover);
-  color: white;
+  font-size: 25px;
+  padding: 5px;
 }
 
 .all-orders {
-    font-family: 'Dokdo', cursive;
+    font-family: 'Dokdo', arial;
     font-size: 50px;
     margin-left: 50px;
     text-align: center;
-}
-
-.order-change-button {
-    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
-    color: #000C66;
-    font-family: 'Gloria Hallelujah', cursive;
-    margin: auto;
-    -webkit-text-stroke: 1px;
-    margin-top: 10px;
-    border-radius: 10px;
-    width: 75%;
-}
-
-.order-change-button:hover {
-  background: var(--hover);
-  color: white;
 }
 
 .admin-orders {
@@ -79,78 +47,3 @@
 .delivery-status {
     width: 225px;
 }
-
-/* .switch-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: -50px;
-    align-items: center;
-}
-
-.switch-div p {
-    font-family: 'Dokdo', cursive;
-    font-size: 40px;
-}
-/* The switch - the box around the slider */
-/* .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  /* .switch input { */
-    /* opacity: 0; */
-    /* width: 0; */
-    /* height: 0; */
-  /* } */
-  
-  /* The slider */
-  /* .slider { */
-    /* position: absolute; */
-    /* cursor: pointer; */
-    /* top: 0; */
-    /* left: 0; */
-    /* right: 0; */
-    /* bottom: 0; */
-    /* background: #ccc; */
-    /* -webkit-transition: .4s; */
-    /* transition: .4s; */
-  /* } */
-  
-  /* .slider:before { */
-    /* position: absolute; */
-    /* content: ""; */
-    /* height: 26px; */
-    /* width: 26px; */
-    /* left: 4px; */
-    /* bottom: 4px; */
-    /* background-color: white; */
-    /* -webkit-transition: .4s; */
-    /* transition: .4s; */
-  /* } */
-  
-  /* input:checked + .slider { */
-    /* background-color: var(--hover); */
-  /* } */
-  
-  /* input:focus + .slider { */
-    /* box-shadow: 0 0 1px silver; */
-  /* } */
-  
-  /* input:checked + .slider:before { */
-    /* -webkit-transform: translateX(26px); */
-    /* -ms-transform: translateX(26px); */
-    /* transform: translateX(26px); */
-  /* } */
-  
-  /* Rounded sliders */
-  /* .slider.round { */
-    /* border-radius: 34px; */
-  /* } */
-  
-  /* .slider.round:before { */
-    /* border-radius: 50%; */
-  /* }   */

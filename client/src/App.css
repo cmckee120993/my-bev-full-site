@@ -59,8 +59,47 @@
   margin-bottom: 20px;
 }
 
+.title-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: none;
+}
+
+.title {
+  color: var(--primary);
+  font-family: 'Dokdo', cursive;
+  font-size: 30px;
+  margin-left: 10px;
+  text-align: center;
+  background: none;
+}
+
+.title-image {
+  width: 50%;
+  margin: 25px;
+  background: none;
+}
+
+
+@media only screen and (min-width: 500px) {
+  .title-image {
+      width: 40%;
+  }
+  .title {
+      font-size: 50px;
+  }
+}
+
 @media only screen and (min-width: 900px) {
   .page-description {
     font-size: 25px;
   }
+  .title-image {
+    width: 20%;
+}
+.title-div {
+    margin-top: -20px;
+    justify-content: center;
+}
 }

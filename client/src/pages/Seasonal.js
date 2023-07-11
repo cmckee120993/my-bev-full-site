@@ -6,11 +6,11 @@ import sixPack from '../assets/images/bx-six-pack.webp';
 function Seasonal() {
     return(
         <>
-            <div className='untappd-title-div'>
-                        <h2 className='untappd-title'>What's On Tap?</h2>
+            <div className='title-div'>
+                        <h2 className='title'>What's On Tap?</h2>
                         <img
                             loading='lazy'
-                            className='untappd-header-image'
+                            className='title-image'
                             src={sixPack}
                             alt='Beverage Express Six Pack Logo'
                             

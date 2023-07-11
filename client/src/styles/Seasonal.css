@@ -1,49 +1,8 @@
-.menu-container, .first a, .prev a, .link-font-color, .tab-content, .menu-info, .ut-menu, .inner-container, .header-bg-color, .menu-header, .row-location-info, .section-name, .section-items-container, .menu-title, .date-time, .date-time span, .date-time time, .item-title-color, .tab-anchor, .ut-more, .pagination, .next, .next a, .last, .last a, .page, .page a, .pagination-container, .pagination-container b, .untappd-title-div, .untappd-title, .untappd-header-image, .no-price p strong {
+.menu-container, .first a, .prev a, .link-font-color, .tab-content, .menu-info, .ut-menu, .inner-container, .header-bg-color, .menu-header, .row-location-info, .section-name, .section-items-container, .menu-title, .date-time, .date-time span, .date-time time, .item-title-color, .tab-anchor, .ut-more, .pagination, .next, .next a, .last, .last a, .page, .page a, .pagination-container, .pagination-container b, .no-price p strong {
     background: none;
-}
-
-.untappd-title-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: 50px;
-}
-
-.untappd-title {
-    color: var(--primary);
-    font-family: 'Dokdo', arial;
-    font-size: 30px;
-    margin-left: 10px;
-    text-align: center;
-}
-
-.untappd-header-image {
-    width: 50%;
-    margin: 25px;
 }
 
 iframe {
     margin: auto;
     display: block;
-}
-
-
-@media only screen and (min-width: 500px) {
-    .untappd-header-image {
-        width: 40%;
-    }
-    .untappd-title {
-        font-size: 50px;
-    }
-}
-
-@media only screen and (min-width: 900px) {
-    .untappd-header-image {
-        width: 20%;
-    }
-    .untappd-title-div {
-        margin-top: -20px;
-        margin-bottom: -75px;
-        justify-content: center;
-    }
 }

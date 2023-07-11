@@ -1,17 +1,9 @@
-
-
-.update-title, .order-history-title {
-    font-family: 'Dokdo', cursive;
-    font-size: 75px;
-    text-align: center;
-}
-
-.update-form, .update-title, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li, .order-button-div, .order-history-email {
+.update-form, .update-form-div, .update-form, .update-label-email, .update-label, .update-input, .update-form-div div, .update-button-div, .orders, .order-history-title, .order-history-div, .order-date, .order-details, .order-details ul, .order-details li, .order-button-div, .order-history-email {
     background: none;
 }
 
 .update-label, .update-label-email {
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah', arial;
     font-size: 25px;
 }
 
@@ -31,29 +23,18 @@ margin-right: 90px;
 .update-input {
     background: white;
     color: black;
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah', arial;
     font-size: 15px;
-    width: 50%;
-}
-
-.update-button {
-    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
-    color: #000C66;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
-    margin-bottom: 50px;
+    width: 300px;
     border-radius: 10px;
-}
-
-.update-button:hover {
-    background: #FFBF00;
-    color: white;
+    margin-top: 10px;
 }
 
 .update-button-div {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 .update-form-div div {
@@ -76,13 +57,13 @@ margin-right: 90px;
 }
 
 .order-date {
-    font-family: 'Dokdo', cursive;
+    font-family: 'Dokdo', arial;
     font-size: 40px;
     text-align: center;
 }
 
 .order-details {
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah', arial;
     font-size: 20px;
 }
 
@@ -102,19 +83,10 @@ margin-right: 90px;
 }
 
 .order-button-div a {
-    background-image: radial-gradient(#dee1e4, #aaa9ad);
-    width: 150px;
-    text-align: center;
-    color: #000C66;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
-    border-radius: 10px;
+    padding: 5px;
+    font-size: 30px;
   }
   
-  .order-button-div a:hover {
-    background: var(--hover);
-    color: white;
-  }
 
   .order-history-email {
     width: 100%;

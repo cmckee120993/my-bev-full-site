@@ -4,6 +4,7 @@ import { QUERY_USER } from  '../../utils/queries';
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../../utils/mutations';
 import '../../styles/CustomerPanel.css'
+import sixPack from  '../../assets/images/bx-six-pack.webp';
 
 function CustomerPanel() {
     const { data } = useQuery(QUERY_USER);
@@ -88,20 +89,20 @@ function CustomerPanel() {
   )
 };
 
-//  function deliveryDateChange(date) {
-//       let delivDate = date.split('-');
-//       let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
-//       return (
-//         <>
-//             <li>Delivery Date: {fixedDate}</li>
-//         </>
-//       )
-//     };
-
     return (
        <>
-        <h2 className='update-title'>Customer Panel Home</h2>
-        <h3 className='update-title'>Update Information</h3>
+
+            <div className="title-div">
+                <h2 className="title">Customer Panel</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
+        
+        <h3 className='title'>Update Information</h3>
         <form className='update-form' onSubmit={handleFormSubmit}>
             <div className='update-form-div'>
                 <div>
@@ -135,19 +136,19 @@ function CustomerPanel() {
                     />
                 </div>
                 <div className='update-button-div'>
-                    <button className='update-button' onClick={resetForm} type="submit">Update</button>
+                    <button className='button' onClick={resetForm} type="submit">Update</button>
                 </div>
             </div>
         </form>
             <div className="orders">
                 <div className='order-button-div'>
-                    <a href='/customerpanel' style={{background: 'var(--hover)'}}>All Orders</a>
-                    <a href='/customerpanel/delivered'>Delivered</a>
-                    <a href='/customerpanel/undelivered'>Undelivered</a>
+                    <a className='button' href='/customerpanel' style={{background: 'var(--hover)'}}>All Orders</a>
+                    <a className='button' href='/customerpanel/delivered'>Delivered</a>
+                    <a className='button' href='/customerpanel/undelivered'>Undelivered</a>
                 </div>
                 {user ? (
                 <>
-                    <h3 className="order-history-title"> Order History for {user.firstName} {user.lastName}</h3>
+                    <h3 className="title"> Order History for {user.firstName} {user.lastName}</h3>
                     <h3 className='order-history-email'>{user.email}</h3>
                     {user.orders.map((order) => (
                         <div className='order-history-div'>

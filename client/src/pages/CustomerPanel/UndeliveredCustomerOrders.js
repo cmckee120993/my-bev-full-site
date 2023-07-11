@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER_ORDER_FALSE } from  '../../utils/queries';
-import '../../styles/CustomerPanel.css'
+import '../../styles/CustomerPanel.css';
+import sixPack from  '../../assets/images/bx-six-pack.webp';
 
 function UndeliveredCustomerOrders() {
     const { data } = useQuery(QUERY_USER_ORDER_FALSE);
@@ -32,23 +33,22 @@ function UndeliveredCustomerOrders() {
   )
 };
 
-//  function deliveryDateChange(date) {
-//       let delivDate = date.split('-');
-//       let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
-//       return (
-//         <>
-//             <li>Delivery Date: {fixedDate}</li>
-//         </>
-//       )
-//     };
-
     return (
        <>
-            <div className="orders">
+       <div className="title-div">
+                <h2 className="title">Customer Panel</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
+        <div className="orders">
                 <div className='order-button-div'>
-                    <a href='/customerpanel' >All Orders</a>
-                    <a href='/customerpanel/delivered'>Delivered</a>
-                    <a href='/customerpanel/undelivered' style={{background: 'var(--hover)'}}>Undelivered</a>
+                    <a className='button' href='/customerpanel' >All Orders</a>
+                    <a className='button' href='/customerpanel/delivered'>Delivered</a>
+                    <a className='button' href='/customerpanel/undelivered' style={{background: 'var(--hover)'}}>Undelivered</a>
                 </div>
                 {data ? (
                 <>

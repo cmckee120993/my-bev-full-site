@@ -5,6 +5,8 @@ import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 import '../styles/Signup.css';
 
+import sixPack from  '../assets/images/bx-six-pack.webp';
+
 function Signup(props) {
     const [formState, setFormState] = useState({ email: '', password: ''});
     const [addUser] = useMutation(ADD_USER);
@@ -33,8 +35,16 @@ function Signup(props) {
 
     return (
         <>
-        <h2 className="signup-title">Signup</h2>
-        
+        {/* page title */}
+        <div className="title-div">
+                <h2 className="title">Signup</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
         <form className='signup-form' onSubmit={handleFormSubmit}>
             <div>
                 <label className='signup-label' htmlFor="firstName">First Name:</label>

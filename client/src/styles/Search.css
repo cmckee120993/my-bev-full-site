@@ -1,31 +1,9 @@
 /* Removing Universal Styling */
 
-.search-title-div, .search-title, .search-header-image, .search-div, .search-words, .search-button, .card-div, .ui-card-div, .card, .beer-name, .beer-details, .beer-details p, .beer-placeholder, .beer-name h2, .content, .slushy-products, .beer-img {
+.search-div, .search-words, .search-button, .card-div, .ui-card-div, .card, .beer-name, .beer-details, .beer-details p, .beer-placeholder, .beer-name h2, .content, .slushy-products, .beer-img {
     background: none;
 }
 
-/* search styling */
-
-/* slushy title */
-
-.search-title-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.search-title {
-    color: var(--primary);
-    font-family: 'Dokdo', arial;
-    font-size: 30px;
-    margin-left: 10px;
-    text-align: center;
-}
-
-.search-header-image {
-    width: 50%;
-    margin: 25px;
-}
 
 /* product and searchbar styling */
 
@@ -42,7 +20,7 @@
     height: 50px;
     border: none;
     border-radius: 10px;
-    margin-right: 50px;
+    margin: 0px 25px;
     color: black;
 }
 
@@ -102,12 +80,6 @@
 }
 
 @media only screen and (min-width: 500px) {
-    .search-header-image {
-        width: 40%;
-    }
-    .search-title {
-        font-size: 50px;
-    }
     .search-div {
         width: 95%; 
     }
@@ -133,13 +105,6 @@
 }
 
 @media only screen and (min-width: 900px) {
-    .search-header-image {
-        width: 20%;
-    }
-    .search-title-div {
-        margin-top: -20px;
-        justify-content: center;
-    }
     .search-words {
         font-size: 30px;
     }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER_ORDER_TRUE } from  '../../utils/queries';
-import '../../styles/CustomerPanel.css'
+import '../../styles/CustomerPanel.css';
+import sixPack from  '../../assets/images/bx-six-pack.webp';
 
 function DeliveredCustomerOrders() {
     const { data } = useQuery(QUERY_USER_ORDER_TRUE);
@@ -44,11 +45,20 @@ function DeliveredCustomerOrders() {
 
     return (
        <>
+       <div className="title-div">
+                <h2 className="title">Customer Panel</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
         <div className="orders">
                 <div className='order-button-div'>
-                    <a href='/customerpanel' >All Orders</a>
-                    <a href='/customerpanel/delivered' style={{background: 'var(--hover)'}}>Delivered</a>
-                    <a href='/customerpanel/undelivered'>Undelivered</a>
+                    <a className='button' href='/customerpanel' >All Orders</a>
+                    <a className='button' href='/customerpanel/delivered' style={{background: 'var(--hover)'}}>Delivered</a>
+                    <a className='button' href='/customerpanel/undelivered'>Undelivered</a>
                 </div>
                 {data ? (
                 <>

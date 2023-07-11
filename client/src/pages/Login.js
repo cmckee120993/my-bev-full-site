@@ -5,7 +5,7 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 import '../styles/Login.css';
-
+import sixPack from  '../assets/images/bx-six-pack.webp';
 
 function Login(props) {
     const [formState, setFormState] = useState({ email: '', password: ''});
@@ -34,7 +34,16 @@ function Login(props) {
 
     return (
         <>
-        <h2 className="login-title">Login</h2>
+        {/* page title */}
+        <div className="title-div">
+                <h2 className="title">Login</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
         
 
         <form className="login-form" onSubmit={handleFormSubmit}>

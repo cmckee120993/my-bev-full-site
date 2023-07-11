@@ -22,11 +22,11 @@ function Contact() {
     return (
         <>
             {/* page title */}
-            <div className="contact-title-div">
-                <h2 className="contact-title">Contact Us!</h2>
+            <div className="title-div">
+                <h2 className="title">Contact Us!</h2>
                 <img
                 loading='lazy'
-                className="contact-header-image"
+                className="title-image"
                 src={sixPack}
                 alt="Beverage Express Six Pack Logo"
                 />

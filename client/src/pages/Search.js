@@ -170,11 +170,11 @@ function productCard(item) {
     return (
         <>
             {/* page title */}
-            <div className='search-title-div'>
-                <h2 className='search-title'>Product Search</h2>
+            <div className='title-div'>
+                <h2 className='title'>Product Search</h2>
                 <img
                     loading='lazy'
-                    className='search-header-image'
+                    className='title-image'
                     src={sixPack}
                     alt='Beverage Express Six Pack Logo'
                 />

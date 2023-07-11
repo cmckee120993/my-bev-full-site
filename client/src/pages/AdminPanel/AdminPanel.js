@@ -4,7 +4,7 @@ import {useQuery} from '@apollo/client';
 import {QUERY_ORDERS} from '../../utils/queries';
 import {useMutation} from '@apollo/client';
 import {UPDATE_STATUS} from '../../utils/mutations';
-
+import sixPack from  '../../assets/images/bx-six-pack.webp';
 
 function AdminPanel() {
     const { data } = useQuery(QUERY_ORDERS);
@@ -24,14 +24,14 @@ function AdminPanel() {
             return(
                 <>
                     <li className='delivery-status' style={{background: 'darkgreen', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: Delivered</li>
-                    <button className='order-change-button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
+                    <button className='button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
                 </>
             )
         } else {
             return (
                 <>
                     <li className='delivery-status' style={{background: 'darkred', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: Working on it!</li>
-                    <button className='order-change-button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
+                    <button className='button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
                 </>
             )
         }
@@ -70,25 +70,25 @@ function AdminPanel() {
   )
 };
 
-    // function deliveryDateChange(date) {
-    //   let delivDate = date.split('-');
-    //   let fixedDate = delivDate[1] + '/' + delivDate[2] + '/' + delivDate[0]
-    //   return (
-    //     <>
-    //         <li>Delivery Date: {fixedDate}</li>
-    //     </>
-    //   )
-    // };
-
 
     return(
         <>
-            <h2 className='admin-title'>Beverage Express Admin Panel</h2>
-            <h3 className='all-orders'>Delivery Orders</h3>
+
+            <div className="title-div">
+                <h2 className="title">Admin Panel</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
+
+            <h3 className='title'>Delivery Orders</h3>
             <div className='button-div'>
-                <a href='/adminpanel' style={{background: 'var(--hover)'}}>All Orders</a>
-                <a href='/adminpanel/delievered'>Delivered</a>
-                <a href='/adminpanel/undelivered'>Undelivered</a>
+                <a className='button' href='/adminpanel' style={{background: 'var(--hover)'}}>All Orders</a>
+                <a className='button' href='/adminpanel/delievered'>Delivered</a>
+                <a  className='button' href='/adminpanel/undelivered'>Undelivered</a>
             </div>
     
             

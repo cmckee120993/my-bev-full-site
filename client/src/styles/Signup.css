@@ -1,37 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Dokdo&family=Gloria+Hallelujah&display=swap");
-
-
-
-* {
-    color: white;
-}
-
-.signup-title {
-    font-family: 'Dokdo', cursive;
-    font-size: 75px;
-    text-align: center;
-}
-
-.signup-form, .signup-title, .signup-form div, .signup-label, .signup-input, .signup-button, .signup-label-email, .signup-label-password {
-    background: none;
-}
-
-.login-link {
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
+.signup-form, .signup-form div, .signup-label, .signup-input, .signup-label-email, .signup-label-password {
     background: none;
 }
 
 .login-link-div {
+    margin-top: 50px;
     background: none;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .signup-label, .signup-label-email, .signup-label-password {
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah', arial;
     font-size: 25px;
+    color: var(--primary);
 }
 
 .signup-label {
@@ -53,25 +36,14 @@ margin-right: 90px;
 }
 
 .signup-input {
-    background: white;
+    background: var(--primary);
     color: black;
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah', arial;
     font-size: 15px;
     width: 50%;
+    border-radius: 20px;
 }
 
-.signup-button {
-    background-image: radial-gradient(#dee1e4, #aaa9ad) ;
-    width: 100px;
-    color: var(--secondary);
-    font-family: 'Dokdo', cursive;
-    font-size: 25px;
-    margin-bottom: 20px;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.signup-button:hover {
-    color: var(--primary);
-    background: var(--hover);
+.signup-form {
+    margin-bottom: 50px;
 }

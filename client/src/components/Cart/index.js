@@ -79,24 +79,14 @@ const Cart = () => {
         return sum.toFixed(2);
     }
 
+
     function deliverMethod() {
-
         let deliv = document.querySelector('.switch-input').checked;
-        let delivDiv = document.querySelector('.deliv-method-div');
+        let delivery = document.getElementById('delivery');
         if (deliv === false) {
-            
-            delivDiv.innerHTML =
-                `<div className='method-div' value='Delivery'>
-                        <label>Address:</label>
-                        <input className="address" type="text"></input>
-                        </div>`
-            
-        } if (deliv === true) {
-
-            delivDiv.innerHTML =
-                `
-                <div className='method-div' value='Pickup'>
-                       </div>`
+            delivery.style.display = 'inline';
+        } else {
+            delivery.style.display = 'none';
         }
     };
 
@@ -104,22 +94,32 @@ const Cart = () => {
     // Send order from cart to database
     function sendOrder() {
         const deliveryDate = document.querySelector('.date-picker').value;
-        const orderOwner = document.querySelector('.order-owner').value;
-        const orderTotal = parseFloat(document.querySelector('.cart-total').textContent);
-        const orderStatus = false;
-        let addressInput = document.querySelector('.address').value;
-        let address; 
-        if (address) {
-            address = addressInput;
-        } else {
-            address = "Pickup";
-        }
-        const phoneNumber = document.querySelector('.phone').value;
-        const deliv = document.querySelector('.method-div');
-       let orderType = deliv.getAttribute('value');
-       console.log("hello");
-       console.log(orderOwner);
         console.log(deliveryDate);
+        const orderOwner = document.querySelector('.order-owner').value;
+        console.log(orderOwner);
+        const orderTotal = parseFloat(document.querySelector('.cart-total').textContent);
+        console.log(orderTotal);
+        const orderStatus = false;
+        console.log(orderStatus);
+        const phoneNumber = document.querySelector('.phone').value;
+        console.log(phoneNumber);
+        const deliv = document.querySelector('.switch-input').checked;
+        console.log(deliv);
+       let orderType; 
+       if (deliv) {
+        orderType = "Pickup"
+       } else {
+        orderType = 'Delivery'
+       }
+       console.log(orderType)
+       let addressInput = document.querySelector('.address').value;
+        let address; 
+        if (deliv) {
+            address = "Pickup";
+        } else {
+            address = addressInput;
+        }
+        console.log(address);
         const products = [];
         state.cart.forEach((item) => {
             products.push({
@@ -128,6 +128,7 @@ const Cart = () => {
                 quantity: item.purchaseQuantity
             })
         });
+        console.log(products);
         addOrder({
             variables: {
                 deliveryDate, 
@@ -140,7 +141,7 @@ const Cart = () => {
                 orderType
             }
         });
-        // document.location.href = '/customerpanel';     
+        document.location.href = '/customerpanel';     
     };
 
     if (!state.cartOpen) {
@@ -166,26 +167,37 @@ const Cart = () => {
             return (
                 <>
                 <div className='addons'>
-                        <p>Would you like to add any of these to your order?</p>
+                        <p className='addons-p'>Don't forget!</p>
                         <div className='product-addon'>
-                            <p>Tap Rental & Deposit</p>
-                            <p>$31.00</p>
-                            <button itemName='Tap Rental & Deposit' itemPrice='31.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                            <p>Tap Rental & Deposit
+                                <br></br>
+                                $31.00
+                            </p>
+                            <button itemName='Tap Rental & Deposit' itemPrice='31.00' onClick={addToCart} className="button">Add</button>
                         </div>
                         <div className='product-addon'>
-                            <p>Tub Rental & Deposit</p>
-                            <p>$21.00</p>
-                            <button itemName='Tub Rental & Deposit' itemPrice='21.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                            <p>
+                                Tub Rental & Deposit
+                                <br></br>
+                                $21.00
+                            </p>
+                            <button itemName='Tub Rental & Deposit' itemPrice='21.00' onClick={addToCart} className="button">Add</button>
                         </div>
                         <div className='product-addon'>
-                        <p>Ice (20lb.)</p>
-                        <p>$5.00</p>
-                        <button itemName='Ice (20lbs.)' itemPrice='5.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                        <p>
+                            Ice (20lb.)
+                            <br></br>
+                            $5.00
+                        </p>
+                        <button itemName='Ice (20lbs.)' itemPrice='5.00' onClick={addToCart} className="button">Add</button>
                     </div>
                     <div className='product-addon'>
-                        <p id='name'>Ice (8lb.)</p>
-                        <p id='price'>$2.50</p>
-                        <button itemName='Ice (8lbs.)' itemPrice='2.50' onClick={addToCart} className="cart-button">Add to Cart</button>
+                        <p>
+                            Ice (8lb.)
+                            <br></br>
+                            $2.50
+                        </p>
+                        <button itemName='Ice (8lbs.)' itemPrice='2.50' onClick={addToCart} className="button">Add</button>
                     </div>
                     </div>
                 
@@ -194,15 +206,24 @@ const Cart = () => {
         } else {
             return(
                 <>
+                <div className='addons'>
+                <p className='addons-p'>Don't forget!</p>
                     <div className='product-addon'>
-                        <p>Ice (20lb.)</p>
-                        <p>$5.00</p>
-                        <button itemName='Ice (20lbs.)' itemPrice='5.00' onClick={addToCart} className="cart-button">Add to Cart</button>
+                        <p>
+                            Ice (20lb.)
+                            <br></br>
+                            $5.00
+                        </p>
+                        <button itemName='Ice (20lbs.)' itemPrice='5.00' onClick={addToCart} className="button">Add</button>
                     </div>
                     <div className='product-addon'>
-                        <p id='name'>Ice (8lb.)</p>
-                        <p id='price'>$2.50</p>
-                        <button itemName='Ice (8lbs.)' itemPrice='2.50' onClick={addToCart} className="cart-button">Add to Cart</button>
+                        <p>
+                            Ice (8lb.)
+                            <br></br>
+                            $2.50
+                        </p>
+                        <button itemName='Ice (8lbs.)' itemPrice='2.50' onClick={addToCart} className="button">Add</button>
+                    </div>
                     </div>
                 </>
             )
@@ -230,26 +251,35 @@ const Cart = () => {
                     <div className="cart-input-div">
                         <div className="total-div">
                             <label>
-                            Total: $
+                                Total: $
                             </label>
                             <p className='cart-total'>{calculateTotal()}</p>
                         </div>
+
                         <div className='slider-div'>
-                        <p>Delivery</p>
-                        <label class="switch">
-                            <input className='switch-input' type="checkbox" value='delivery' onClick={deliverMethod}/>
-                            <span class="slider round"></span>  
-                        </label>
-                        <p>Pickup</p>
+                            <div>
+                                <p>Delivery</p>
+                            </div>
+                            <div>
+                                <label class="switch">
+                                    <input className='switch-input' type="checkbox" value='delivery' onClick={deliverMethod}/>
+                                    <span class="slider round"></span>  
+                                </label>
+                            </div>
+                            <div>
+                                <p>Pickup</p>
+                            </div>
                         </div>
                         <label>Delivery Date:</label>
-                        <Calendar />
+                    {<Calendar />}
+                        <div className='deliv-method-div'>
+                
                         <label>Name:</label>
                         <input className="order-owner" type="text"></input>
                         <label>Phone Number:</label>
                         <input className="phone" type="text"></input>
-                        <div className='deliv-method-div'>
-                        <div className='method-div' value='Delivery'>
+                        
+                        <div className='method-div' id='delivery'>
                         <label>Address:</label>
                         <input className="address" type="text"></input>
                         </div>
@@ -257,7 +287,7 @@ const Cart = () => {
                         
                         {/* <AutoComplete /> */}
                         {Auth.loggedIn() ? (
-                            <button className="cart-button" onClick={sendOrder}>Send Order</button>
+                            <button className="button" onClick={sendOrder}>Send Order</button>
                         ) : (
                             <span>(log in to check out)</span>
                         )}

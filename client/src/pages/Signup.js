@@ -91,10 +91,10 @@ function Signup(props) {
                     />
             </div>
             <div>
-                <button className='signup-button' type="submit">Submit</button>
+                <button className='button' type="submit">Submit</button>
             </div>
         <div className="login-link-div">
-            <Link className='login-link' to="/login">Already have an account? Login</Link>
+            <Link className='link' to="/login">Already have an account? Login</Link>
         </div>
 
         </form>

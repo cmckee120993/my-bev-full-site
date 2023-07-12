@@ -5,6 +5,7 @@
 .update-label, .update-label-email {
     font-family: 'Gloria Hallelujah', arial;
     font-size: 25px;
+    color: var(--primary);
 }
 
 .update-label {
@@ -21,7 +22,7 @@ margin-right: 90px;
 }
 
 .update-input {
-    background: white;
+    background: var(--primary);
     color: black;
     font-family: 'Gloria Hallelujah', arial;
     font-size: 15px;
@@ -50,10 +51,11 @@ margin-right: 90px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border: white solid 3px;
+    border: var(--primary) solid 3px;
     padding: 5px;
     width: 300px;
     margin: 10px;
+    color: var(--primary);
 }
 
 .order-date {
@@ -91,9 +93,10 @@ margin-right: 90px;
   .order-history-email {
     width: 100%;
     text-align: center;
-    font-family: 'Dokdo', cursive;
+    font-family: 'Dokdo', arial;
     font-size: 30px;
     margin-top: -50px;
+    color: var(--primary);
   }
 
   @media only screen and (min-width: 900px) {

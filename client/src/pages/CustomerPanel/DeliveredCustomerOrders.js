@@ -46,7 +46,10 @@ function DeliveredCustomerOrders() {
     return (
        <>
        <div className="title-div">
-                <h2 className="title">Customer Panel</h2>
+                <h2 className="title">Customer Panel
+                    <br></br>
+                    Completed Orders
+                </h2>
                 <img
                 loading='lazy'
                 className="title-image"
@@ -57,8 +60,8 @@ function DeliveredCustomerOrders() {
         <div className="orders">
                 <div className='order-button-div'>
                     <a className='button' href='/customerpanel' >All Orders</a>
-                    <a className='button' href='/customerpanel/delivered' style={{background: 'var(--hover)'}}>Delivered</a>
-                    <a className='button' href='/customerpanel/undelivered'>Undelivered</a>
+                    <a className='button' href='/customerpanel/delivered' style={{background: 'var(--hover)'}}>Completed</a>
+                    <a className='button' href='/customerpanel/undelivered'>Uncompleted</a>
                 </div>
                 {data ? (
                 <>

@@ -8,11 +8,13 @@
 
 * {
   background-image: radial-gradient(#1c1e47, black);
+  color: var(--primary);
 }
 
 .link {
   color: var(--primary);
   background: none;
+  font-family: 'Gloria Hallelujah', arial;
 }
 
 .link:hover {
@@ -68,7 +70,7 @@
 
 .title {
   color: var(--primary);
-  font-family: 'Dokdo', cursive;
+  font-family: 'Dokdo', arial;
   font-size: 30px;
   margin-left: 10px;
   text-align: center;

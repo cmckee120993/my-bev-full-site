@@ -93,7 +93,10 @@ function CustomerPanel() {
        <>
 
             <div className="title-div">
-                <h2 className="title">Customer Panel</h2>
+                <h2 className="title">Customer Panel
+                  <br></br> 
+                  Main Page     
+                </h2>
                 <img
                 loading='lazy'
                 className="title-image"
@@ -143,8 +146,8 @@ function CustomerPanel() {
             <div className="orders">
                 <div className='order-button-div'>
                     <a className='button' href='/customerpanel' style={{background: 'var(--hover)'}}>All Orders</a>
-                    <a className='button' href='/customerpanel/delivered'>Delivered</a>
-                    <a className='button' href='/customerpanel/undelivered'>Undelivered</a>
+                    <a className='button' href='/customerpanel/delivered'>Completed</a>
+                    <a className='button' href='/customerpanel/undelivered'>Uncompleted</a>
                 </div>
                 {user ? (
                 <>

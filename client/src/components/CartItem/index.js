@@ -50,7 +50,7 @@ const CartItem = ({ item }) => {
                     value={item.purchaseQuantity}
                     onChange={onChange}
                     />
-                    <button className="cart-button" onClick={() => removeFromCart(item)}>Delete</button>
+                    <button className="button" onClick={() => removeFromCart(item)}>Delete</button>
             </div>
         </div>
     );

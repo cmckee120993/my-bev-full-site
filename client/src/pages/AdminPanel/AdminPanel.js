@@ -5,6 +5,7 @@ import {QUERY_ORDERS} from '../../utils/queries';
 import {useMutation} from '@apollo/client';
 import {UPDATE_STATUS} from '../../utils/mutations';
 import sixPack from  '../../assets/images/bx-six-pack.webp';
+import Collapsible from 'react-collapsible';
 
 function AdminPanel() {
     const { data } = useQuery(QUERY_ORDERS);
@@ -15,6 +16,8 @@ function AdminPanel() {
         orders = data.orders;
     };
 
+    console.log(data);
+
     const [updateOrderStatus] = useMutation(UPDATE_STATUS);
    
 
@@ -23,15 +26,19 @@ function AdminPanel() {
         if(order.orderStatus === true) {
             return(
                 <>
-                    <li className='delivery-status' style={{background: 'darkgreen', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: Delivered</li>
-                    <button className='button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
+                    <div className='status-div'>
+                        <p className='delivery-status' style={{background: 'darkgreen', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: Delivered!</p>
+                        <button className='button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
+                    </div>
                 </>
             )
         } else {
             return (
                 <>
-                    <li className='delivery-status' style={{background: 'darkred', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: Working on it!</li>
-                    <button className='button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
+                    <div className='status-div'>
+                        <p className='delivery-status' style={{background: 'darkred', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: In progress!</p>
+                        <button className='button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
+                    </div>
                 </>
             )
         }
@@ -70,6 +77,12 @@ function AdminPanel() {
   )
 };
 
+function singleOrder(event) {
+    let orderButton = event.target;
+    let orderId = orderButton.getAttribute('orderId');
+    document.location.href = `/singleorder/${orderId}`
+}
+
 
     return(
         <>
@@ -98,6 +111,7 @@ function AdminPanel() {
                    
                         {orders.map((order) => (
                             <div className='admin-order-div'>
+                                <h3 className='order-title'><button onClick={singleOrder} orderId={order._id} className='button single-order-button'>Order #{order._id}</button></h3>
                                 <ul>
                                     <li key={order.orderOwner}>Order Owner: {order.orderOwner}</li>
                                     <li key={order.purchaseDate}>Order Placed On: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</li>
@@ -105,23 +119,26 @@ function AdminPanel() {
                                     <li key={order.address}>Address: {order.address}</li>
                                     <li key={order.phoneNumber}>Phone Number: {order.phoneNumber}</li>
                                     <li key={order.orderType}>Order Type: {order.orderType}</li>
-                                    {orderStatus(order)}
+                                    
                                     <li key={order.orderTotal}>Order Total: ${order.orderTotal}</li>
+                                    <div className='products-div'>
+                                        <Collapsible className='' trigger='Click for the products!' triggerWhenOpen='Close'>
                                     <li>Products:</li>
-                                        {order.products.map(({ name ,price, quantity}, index) => (
-                                            <ul>
-                                                {titleCase(name)}
+                                            {order.products.map(({ name ,price, quantity}, index) => (
                                                 <ul>
-                                                    <li key={price}>Price: ${price}</li>
-                                                    <li key={quantity}>Quantity: {quantity}</li>
+                                                    {titleCase(name)}
+                                                    <ul>
+                                                        <li key={price}>Price: ${price}</li>
+                                                        <li key={quantity}>Quantity: {quantity}</li>
+                                                    </ul>
                                                 </ul>
-                                            </ul>
-                                        ))}
+                                            ))}
+                                        </Collapsible>
+                                    </div>
                                 </ul>
+                                {orderStatus(order)}
                             </div> 
-                            
-                        ))}
-                       
+                        ))} 
                     </>
                 ): null}
             </div>

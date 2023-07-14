@@ -30,6 +30,7 @@ import AdminPanel from './pages/AdminPanel/AdminPanel';
 import UndeliveredOrders from './pages/AdminPanel/undeliveredOrders';
 import DelieveredOrders from './pages/AdminPanel/deliveredOrders';
 import { StoreProvider } from './utils/GlobalState';
+import SingleOrder from './pages/AdminPanel/singleOrder';
 
 const httpLink = createHttpLink ({
   uri:'/graphql',
@@ -76,6 +77,7 @@ function App() {
             <Route path='/seasonal' element={<Seasonal />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='*' element={<h1>Wrong page!</h1>} />
+            <Route path='/singleorder/:id' element={<SingleOrder />} />
           </Routes>
           <Footer />
           </div>

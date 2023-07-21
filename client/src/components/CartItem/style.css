@@ -1,0 +1,32 @@
+.name-div h2, .cart-price {
+    background: none;
+}
+
+.item-div {
+    border: white 5px solid;
+    border-radius: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.name-div h2 {
+    margin: 0px;
+}
+
+.cart-price {
+    font-size: 25px;
+    margin: 0px;
+}
+
+.quantity-div {
+    width: 100%;
+}
+
+.quantity-div input {
+    width: 25%;
+    font-size: 25px;
+    font-family: "Dokdo", arial;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 50px;
+}

@@ -4,6 +4,7 @@ import React from 'react';
 import { useStoreContext } from '../../utils/GlobalState';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
+import './style.css';
 
 const CartItem = ({ item }) => {
     const [, dispatch] = useStoreContext();
@@ -34,15 +35,29 @@ const CartItem = ({ item }) => {
         }
     }
 
+    function titleCase(str) {
+        str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  let productName= str.join(' ');
+  
+  return (
+    <>
+        <h2 key={productName}>{productName}</h2>
+    </>
+  )
+};
+
     return (
-        <div>
-            <div>
-                {item.name}
+        <div className='item-div'>
+            <div className='name-div'>
+                {titleCase(item.name)}
             </div>
             <div>
-                {item.price}
+                <p className='cart-price'>${item.price}</p>
             </div>
-            <div>
+            <div className='quantity-div'>
                 <span>Qty:</span>
                 <input
                     type='number'

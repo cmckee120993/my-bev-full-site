@@ -270,19 +270,28 @@ const Cart = () => {
                                 <p>Pickup</p>
                             </div>
                         </div>
-                        <label>Delivery Date:</label>
-                    {<Calendar />}
-                        <div className='deliv-method-div'>
-                
-                        <label>Name:</label>
-                        <input className="order-owner" type="text"></input>
-                        <label>Phone Number:</label>
-                        <input className="phone" type="text"></input>
-                        
-                        <div className='method-div' id='delivery'>
-                        <label>Address:</label>
-                        <input className="address" type="text"></input>
+
+                        <div className='cal-div'>
+                            <label>Delivery Date:</label>
+                            {<Calendar />}
                         </div>
+                        <div className='deliv-method-div'>
+
+                            <div className='method-div'>
+                                <label>Name:</label>
+                                <input className="order-owner" type="text"></input>
+                            </div>
+                            
+                            <div className='method-div'>
+                                <label>Phone Number:</label>
+                                <input className="phone" type="text"></input>
+                            </div>
+                            
+                            <div className='method-div' id='delivery'>
+                                <label>Address:</label>
+                                <input className="address" type="text"></input>
+                            </div>
+                        
                         </div>
                         
                         {/* <AutoComplete /> */}

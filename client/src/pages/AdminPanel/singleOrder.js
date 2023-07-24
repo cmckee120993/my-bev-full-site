@@ -1,89 +1,51 @@
 import React from 'react';
 import '../../styles/AdminPanel.css';
 import {useQuery} from '@apollo/client';
-import {QUERY_ORDERS} from '../../utils/queries';
-import {useMutation} from '@apollo/client';
-import {UPDATE_STATUS} from '../../utils/mutations';
+import {QUERY_ORDER} from '../../utils/queries';
 import sixPack from  '../../assets/images/bx-six-pack.webp';
-
+import OrderCard from '../../components/OrderCard';
 function SingleOrder() {
-    const { data } = useQuery(QUERY_ORDERS);
 
-
-    let orders;
+    // Needs updated when site is live
+    let orderId = window.location.href.slice(34);
+    console.log(orderId);
+    let order;
+    const {data} = useQuery(QUERY_ORDER, {
+        variables: { id: `${orderId}`},
+    } );
+    
+    function initOrder() {
     if(data) {
-        orders = data.orders;
-    };
-
-    const [updateOrderStatus] = useMutation(UPDATE_STATUS);
+        order = data.order;
+        return (
+            <>
+                <OrderCard order={order}></OrderCard>
+            </>
+        )
+    } else {
+        return(
+            <>
+            <p>LOADING...</p>
+            </>
+        )
+    }
+    }
    
-
-    function orderStatus(order) {
-        
-        if(order.orderStatus === true) {
-            return(
-                <>
-                    <div className='status-div'>
-                        <p className='delivery-status' style={{background: 'darkgreen', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: Delivered!</p>
-                        <button className='button' orderId={order._id} onClick={falseStatus}>Change Order Status</button>
-                    </div>
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <div className='status-div'>
-                        <p className='delivery-status' style={{background: 'darkred', textAlign: 'center', borderRadius: '10px', color: 'white', padding: '5px'}}>Delivery Status: In progress!</p>
-                        <button className='button' orderId={order._id} onClick={trueStatus}>Change Order Status</button>
-                    </div>
-                </>
-            )
-        }
-    };
-    const trueStatus= (event) => {
-        let orderBtn = event.target;
-        let orderId = orderBtn.getAttribute('orderid');
-       updateOrderStatus ( {
-            variables: {
-                id: orderId,
-                orderStatus: true, 
-            }
-        })
-    };
-    const  falseStatus = (event) => {
-        let orderBtn = event.target;
-        let orderId = orderBtn.getAttribute('orderid');
-       updateOrderStatus ( {
-            variables: {
-                id: orderId,
-                orderStatus: false, 
-            }
-        })
-    };
-    function titleCase(str) {
-        str = str.toLowerCase().split(' ');
-  for (var i = 0; i < str.length; i++) {
-    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
-  }
-  let productName= str.join(' ');
-  
-  return (
-    <>
-        <li key={productName}>{productName}</li>
-    </>
-  )
-};
-
-function singleOrder(event) {
-    let orderButton = event.target;
-    let orderId = orderButton.getAttribute('postId');
-    document.location.href = `/post/${orderId}`
-}
 
 
     return(
         <>
-            <h2>Hello!</h2>
+           <div className="title-div">
+                <h2 className="title">Order #{orderId}</h2>
+                <img
+                loading='lazy'
+                className="title-image"
+                src={sixPack}
+                alt="Beverage Express Six Pack Logo"
+                />
+            </div>
+            
+            {initOrder()}
         </>
     )
 }

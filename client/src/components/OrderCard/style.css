@@ -1,0 +1,58 @@
+.order-div, .order-div ul, .order-div li, .products-div, .Collapsible__contentInner, .Collapsible__contentOuter, .Collapsible span, .Collapsible, .order-title {
+    background: none;
+}
+
+.order-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: white solid 3px;
+    padding: 5px;
+    width: 400px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: var(--secondary)
+}
+
+.order-div li {
+    color: var(--primary);
+    font-family: 'Gloria Hallelujah', arial;
+    font-size: 20px;
+}
+
+.delivery-status {
+    font-family: "Gloria Hallelujah", arial;
+      width: 225px;
+  }
+
+  .status-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .Collapsible span {
+    color: var(--primary);
+    font-size: 20px;
+    font-family: "Gloria Hallelujah", arial;
+    border: var(--primary) 1px solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
+  
+  .Collapsible span:hover {
+    background: var(--hover);
+  }
+  
+  .Collapsible {
+    margin-top: 20px;
+    width: 85%;
+  }
+  
+  .order-title {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+  }

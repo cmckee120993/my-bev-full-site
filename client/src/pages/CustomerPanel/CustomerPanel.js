@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../../utils/mutations';
 import '../../styles/CustomerPanel.css'
 import sixPack from  '../../assets/images/bx-six-pack.webp';
+import OrderCard from '../../components/OrderCard';
 
 function CustomerPanel() {
     const { data } = useQuery(QUERY_USER);
@@ -63,31 +64,6 @@ function CustomerPanel() {
         lastNameValue.value = '';
     };
 
-    function orderStatus(status) {
-        if(status === true) {
-            return(
-                <li style={{background: 'darkGreen', borderRadius: '10px'}}>Status: Delivered</li>
-            )
-        } else {
-            return (
-                <li style={{background: 'darkRed', borderRadius: '10px'}}>Status: Working on it!</li>
-            )
-        }
-    };
-
-    function titleCase(str) {
-        str = str.toLowerCase().split(' ');
-  for (var i = 0; i < str.length; i++) {
-    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
-  }
-  let productName= str.join(' ');
-  
-  return (
-    <>
-        <li key={productName}>{productName}</li>
-    </>
-  )
-};
 
     return (
        <>
@@ -154,34 +130,7 @@ function CustomerPanel() {
                     <h3 className="title"> Order History for {user.firstName} {user.lastName}</h3>
                     <h3 className='order-history-email'>{user.email}</h3>
                     {user.orders.map((order) => (
-                        <div className='order-history-div'>
-                            <h3 className='order-date'> Order Placed On:&nbsp;
-                            {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-                            </h3>
-
-                            <div className='order-details'>
-                                <ul>
-                                    <li key={order.orderOwner}>Person Picking Up Order: {order.orderOwner}</li>
-                                    <li key={order.deliveryDate}>Delivery Date: {order.deliveryDate}</li>
-                                    <li key={order.address}>Address: {order.address}</li>
-                                    <li key={order.phoneNumber}>Phone Number: {order.phoneNumber}</li>
-                                    <li key={order.orderType}>Order Type: {order.orderType}</li>
-                                    {orderStatus(order.orderStatus)}
-                                    
-                                    <li>Products:</li>
-                                    {order.products.map(({name, price, quantity}, index) => (
-                                    <ul>
-                                        {titleCase(name)}
-                                        <ul>
-                                        <li key={price}>Price for One: {price}</li>
-                                        <li key={quantity}>Quantity: {quantity}</li>
-                                        </ul>
-                                    </ul>
-                                    ))}
-                                    <li>Total: ${order.orderTotal}</li>
-                                </ul>
-                            </div>
-                        </div>
+                         <OrderCard order={order}></OrderCard>
                     ))}
                 </>
                 ): null}

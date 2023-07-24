@@ -130,3 +130,24 @@ query OrderStatusTrue {
   }
 }
 `;
+
+export const QUERY_ORDER = gql`
+query Order($id: ID!) {
+  order(_id: $id) {
+    _id
+    address
+    deliveryDate
+    orderOwner
+    orderStatus
+    orderTotal
+    orderType
+    phoneNumber
+    products {
+      name
+      price
+      quantity
+    }
+    purchaseDate
+  }
+}
+`

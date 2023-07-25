@@ -13,7 +13,6 @@ const OrderCard = ({ order }) => {
     function orderStatus(order) {
         
         let customerAdmin = window.location.href.split("/");
-        console.log(customerAdmin);
         if(order.orderStatus === true && customerAdmin[3] === 'customerpanel') {
             return(
                 <>
@@ -110,7 +109,6 @@ function singleOrder(event) {
 
 function orderTitle() {
     let customerAdmin = window.location.href.split('/');
-    console.log(customerAdmin)
     if (customerAdmin[3] === 'customerpanel') {
         return (
             <>

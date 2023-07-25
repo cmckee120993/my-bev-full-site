@@ -1,4 +1,4 @@
-.admin-orders, .admin-title, .button-div, .status-div, .all-orders {
+.admin-orders, .admin-title, .button-div, .status-div, .all-orders, .single-order-div {
     background: none;
 }
 
@@ -24,4 +24,9 @@
     font-size: 50px;
     margin-left: 50px;
     text-align: center;
+}
+
+.single-order-div {
+  display: flex;
+  justify-content: space-around;
 }

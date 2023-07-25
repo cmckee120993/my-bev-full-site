@@ -131,8 +131,8 @@ query OrderStatusTrue {
 }
 `;
 
-export const QUERY_ORDER = gql`
-query Order($id: ID!) {
+export const QUERY_ORDER_AND_USER = gql`
+query userAndOrder($id: ID!) {
   order(_id: $id) {
     _id
     address
@@ -148,6 +148,53 @@ query Order($id: ID!) {
       quantity
     }
     purchaseDate
+  }
+  user {
+    admin
+  }
+}
+`
+
+export const QUERY_ORDERS_AND_USER = gql`
+query usersAndOrders {
+  orders {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+    address
+    phoneNumber
+    orderType
+  }
+  user {
+    _id
+    firstName
+    lastName
+    email
+    admin
+    orders {
+      _id
+      purchaseDate
+      deliveryDate
+      orderOwner
+      products {
+        name
+        price
+        quantity
+      }
+      orderTotal
+      orderStatus
+      address
+      phoneNumber
+      orderType
+    }
   }
 }
 `

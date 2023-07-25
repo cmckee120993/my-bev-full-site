@@ -198,3 +198,64 @@ query usersAndOrders {
   }
 }
 `
+
+export const QUERY_SEARCH_ORDERS_ALL_ORDERS = gql`
+query OrderSearch($phoneNumber: String, $orderOwner: String, $id: ID, $orderStatus: Boolean) {
+  orderSearch(phoneNumber: $phoneNumber, orderOwner: $orderOwner, _id: $id, orderStatus: $orderStatus) {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+    address
+    phoneNumber
+    orderType
+  }
+  orders {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+    address
+    phoneNumber
+    orderType
+  }
+}
+`
+
+export const QUERY_SEARCH_PARAMS = gql`
+query OrderSearchParams($phoneNumber: String, $id: ID, $orderOwner: String, $orderStatus: Boolean) {
+  orderSearch(phoneNumber: $phoneNumber, _id: $id, orderOwner: $orderOwner, orderStatus: $orderStatus) {
+    _id
+    purchaseDate
+    deliveryDate
+    orderOwner
+    products {
+      name
+      price
+      quantity
+    }
+    orderTotal
+    orderStatus
+    address
+    phoneNumber
+    orderType
+  }
+  user {
+    admin
+  }
+}
+`

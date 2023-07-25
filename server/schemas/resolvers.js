@@ -14,6 +14,25 @@ const resolvers = {
 				return await Order.findById(_id).populate('products');
 		}, 
 
+		orderSearch: async (parent, { phoneNumber, _id, orderOwner, orderStatus }, context) => {
+			if (phoneNumber) {
+			return await Order.find({ phoneNumber: phoneNumber} )
+			}
+			if (_id) {
+				return await Order.find({ _id: _id} )
+			}
+			if (orderOwner) {
+				return await Order.find({ orderOwner: orderOwner} )
+			}
+			if (orderStatus) {
+				return await Order.find({ orderStatus: orderStatus} )
+			}
+		},
+
+		orderSearchPhone: async (parent, { phoneNumber }, context) => {
+			return await Order.find({ phoneNumber: phoneNumber} )
+		},
+
 		orderStatusFalse: async () => {
 				return Order.find({orderStatus: false});
 			},

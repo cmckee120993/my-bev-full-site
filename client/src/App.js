@@ -31,7 +31,7 @@ import UndeliveredOrders from './pages/AdminPanel/undeliveredOrders';
 import DelieveredOrders from './pages/AdminPanel/deliveredOrders';
 import { StoreProvider } from './utils/GlobalState';
 import SingleOrder from './pages/AdminPanel/singleOrder';
-
+import AdminPanelMaster from './pages/AdminPanel/AdminPanelMaster';
 const httpLink = createHttpLink ({
   uri:'/graphql',
 });
@@ -71,6 +71,7 @@ function App() {
             <Route path='/customerpanel/delivered' element={<DeliveredCustomerOrders />} />
             <Route path='/customerpanel/undelivered' element={<UndeliveredCustomerOrders />} />
             <Route path='/adminpanel' element={<AdminPanel />} />
+            <Route path='/adminpanelmaster' element={<AdminPanelMaster />} />
             <Route path='/adminpanel/delievered' element={<DelieveredOrders />} />
             <Route path='/adminpanel/undelivered' element={<UndeliveredOrders />} />
             <Route path='/search' element={<Search />} />

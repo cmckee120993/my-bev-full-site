@@ -29,8 +29,10 @@ const resolvers = {
 			}
 		},
 
-		orderSearchPhone: async (parent, { phoneNumber }, context) => {
-			return await Order.find({ phoneNumber: phoneNumber} )
+		userOrderSearch: async (parent, {orderStatus}, context) => {
+			if(context.user) {
+				return await Order.find({ orderStatus: orderStatus })
+			}
 		},
 
 		orderStatusFalse: async () => {

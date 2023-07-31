@@ -1,32 +1,43 @@
-.admin-orders, .admin-title, .button-div, .status-div, .all-orders, .single-order-div {
-    background: none;
+.admin-orders, .order-search-div, .search-bar-div, .checkbox-div, .option-div, .option-div label {
+  background: none;
+}
+
+.order-search-div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.order-search-input {
+  margin-right: 20px;
+  width: 60%;
+}
+
+.search-bar-div {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.checkbox-div {
+  border: var(--primary) 2px solid;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  font-family: 'Gloria Hallelujah', arial;
+  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cat-button {
+  width: 75%;
 }
 
 .admin-orders {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-}
 
-.button-div {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 25px;
-}
-
-.button-div a {
-  font-size: 25px;
-  padding: 5px;
-}
-
-.all-orders {
-    font-family: 'Dokdo', arial;
-    font-size: 50px;
-    margin-left: 50px;
-    text-align: center;
-}
-
-.single-order-div {
-  display: flex;
-  justify-content: space-around;
 }

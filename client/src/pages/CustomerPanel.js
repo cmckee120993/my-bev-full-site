@@ -1,19 +1,91 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_USER } from  '../../utils/queries';
+import { useQuery, useLazyQuery } from '@apollo/client';
+import { QUERY_USER, QUERY_USER_ORDER_STATUS } from  '../utils/queries';
 import { useMutation } from '@apollo/client';
-import { UPDATE_USER } from '../../utils/mutations';
-import '../../styles/CustomerPanel.css'
-import sixPack from  '../../assets/images/bx-six-pack.webp';
-import OrderCard from '../../components/OrderCard';
+import { UPDATE_USER } from '../utils/mutations';
+import '../styles/CustomerPanel.css'
+import sixPack from  '../assets/images/bx-six-pack.webp';
+import OrderCard from '../components/OrderCard';
 
 function CustomerPanel() {
-    const { data } = useQuery(QUERY_USER);
+    const { loading: userLoading, data: userData, error } = useQuery(QUERY_USER);
+    const [userOrderStatus, { data: userOrderData, loading: userOrderLoading, error: userOrderError}] = useLazyQuery(QUERY_USER_ORDER_STATUS);
+    let orderSearch;
     let user;
-    if (data) {
-        user = data.user;
+    
+    if (userData) {
+        user = userData.user;
     };
 
+    if (userOrderData) {
+        orderSearch = userOrderData.userOrderSearch;
+    }
+
+    const buttonSearch = (event) => {
+        let catButton = event.target;
+        let category = catButton.getAttribute('id');
+        buttons(category);
+    };
+
+    function buttons(str) {
+        if (str === 'undelivered') {
+        userOrderStatus({variables: {orderStatus: false}});
+    } else if (str === 'delivered') {
+        userOrderStatus({variables: {orderStatus: true}})
+    }
+    else if (str === 'all-orders') {
+        window.location.reload();
+    }
+ };
+
+    function initOrderData() {
+        if(userLoading || userOrderLoading) {
+            return (
+                <>
+                    <p>Loading...</p>
+                </>
+            )
+        } if (orderSearch) {
+            return (
+                <>
+                <div className='admin-orders'>  
+        {orderSearch ? (
+            <>   
+                {orderSearch.map((order) => (
+                    <OrderCard order={order}></OrderCard>
+                ))} 
+            </>
+        ): null}
+    </div>
+                </>
+            )
+        } 
+        if (!orderSearch) {
+           
+            return (
+                <>
+                <div className='admin-orders'>  
+        {user ? (
+            <>   
+                {user.orders.map((order) => (
+                    <OrderCard order={order}></OrderCard>
+                ))} 
+            </>
+        ): null}
+    </div>
+                </>
+            )
+        };
+
+        if (error || userOrderError) {
+            return(
+            <>
+                <p>Return home...</p>
+            </>
+            )
+        }
+    };
+   
     const [formState, setFormState] = useState({email: '', firstName: '', lastName: ''})
     const [updateUser] = useMutation(UPDATE_USER);
 
@@ -64,6 +136,7 @@ function CustomerPanel() {
         lastNameValue.value = '';
     };
 
+    
 
     return (
        <>
@@ -119,22 +192,24 @@ function CustomerPanel() {
                 </div>
             </div>
         </form>
-            <div className="orders">
-                <div className='order-button-div'>
-                    <a className='button' href='/customerpanel' style={{background: 'var(--hover)'}}>All Orders</a>
-                    <a className='button' href='/customerpanel/delivered'>Completed</a>
-                    <a className='button' href='/customerpanel/undelivered'>Uncompleted</a>
-                </div>
-                {user ? (
+
+        {user ? (
                 <>
                     <h3 className="title"> Order History for {user.firstName} {user.lastName}</h3>
                     <h3 className='order-history-email'>{user.email}</h3>
-                    {user.orders.map((order) => (
-                         <OrderCard order={order}></OrderCard>
-                    ))}
                 </>
                 ): null}
+
+                
+            <div className='checkbox-div'>
+                <button className='button cat-button' id='delivered' name='status' value='delivered' onClick={buttonSearch}>Delivered Orders</button>
+                <button className='button cat-button' id='undelivered' name='status' value='undelivered' onClick={buttonSearch}>Undelivered Orders</button>
+                <button className='button cat-button' id='all-orders' name='status' value='all-orders' onClick={buttonSearch}>All Orders</button>
             </div>
+
+            
+
+        {initOrderData()}
        </>
     )
 };

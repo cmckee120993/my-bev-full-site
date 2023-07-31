@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-
+// keep
 export const QUERY_USER = gql`
   query getUserData {
     user {
@@ -237,7 +237,7 @@ query OrderSearch($phoneNumber: String, $orderOwner: String, $id: ID, $orderStat
 `
 
 export const QUERY_SEARCH_PARAMS = gql`
-query OrderSearchParams($phoneNumber: String, $id: ID, $orderOwner: String, $orderStatus: Boolean) {
+query OrderSearchParamsquery($phoneNumber: String, $id: ID, $orderOwner: String, $orderStatus: String) {
   orderSearch(phoneNumber: $phoneNumber, _id: $id, orderOwner: $orderOwner, orderStatus: $orderStatus) {
     _id
     purchaseDate
@@ -256,6 +256,37 @@ query OrderSearchParams($phoneNumber: String, $id: ID, $orderOwner: String, $ord
   }
   user {
     admin
+  }
+}
+`
+
+export const QUERY_USER_ORDERS = gql`
+query userOrderQuery($orderStatus: Boolean) {
+  userOrderSearch(orderStatus: $orderStatus) {
+    _id
+    orderOwner
+    orderStatus
+  }
+}
+`
+// keep
+export const QUERY_USER_ORDER_STATUS =gql`
+  query userOrderQueryStatus($orderStatus: Boolean) {
+  userOrderSearch(orderStatus: $orderStatus) {
+    _id
+    address
+    orderOwner
+    orderStatus
+    deliveryDate
+    orderTotal
+    orderType
+    purchaseDate
+    products {
+      name
+      price
+      quantity
+    }
+    phoneNumber
   }
 }
 `

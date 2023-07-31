@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../styles/AdminPanel.css';
+import '../styles/AdminPanel.css';
 import {useQuery} from '@apollo/client';
-import {QUERY_ORDER_AND_USER} from '../../utils/queries';
-import sixPack from  '../../assets/images/bx-six-pack.webp';
-import OrderCard from '../../components/OrderCard';
+import {QUERY_ORDER_AND_USER} from '../utils/queries';
+import sixPack from  '../assets/images/bx-six-pack.webp';
+import OrderCard from '../components/OrderCard';
 function SingleOrder() {
 
     // Needs updated when site is live

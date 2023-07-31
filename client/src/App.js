@@ -23,15 +23,10 @@ import Seasonal from './pages/Seasonal';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import CustomerPanel from './pages/CustomerPanel/CustomerPanel';
-import UndeliveredCustomerOrders from './pages/CustomerPanel/UndeliveredCustomerOrders';
-import DeliveredCustomerOrders from './pages/CustomerPanel/DeliveredCustomerOrders';
-import AdminPanel from './pages/AdminPanel/AdminPanel';
-import UndeliveredOrders from './pages/AdminPanel/undeliveredOrders';
-import DelieveredOrders from './pages/AdminPanel/deliveredOrders';
+import CustomerPanel from './pages/CustomerPanel';
 import { StoreProvider } from './utils/GlobalState';
-import SingleOrder from './pages/AdminPanel/singleOrder';
-import AdminPanelMaster from './pages/AdminPanel/AdminPanelMaster';
+import SingleOrder from './pages/singleOrder';
+import AdminPanel from './pages/AdminPanel';
 const httpLink = createHttpLink ({
   uri:'/graphql',
 });
@@ -68,12 +63,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/customerpanel' element={<CustomerPanel />} />
-            <Route path='/customerpanel/delivered' element={<DeliveredCustomerOrders />} />
-            <Route path='/customerpanel/undelivered' element={<UndeliveredCustomerOrders />} />
             <Route path='/adminpanel' element={<AdminPanel />} />
-            <Route path='/adminpanelmaster' element={<AdminPanelMaster />} />
-            <Route path='/adminpanel/delievered' element={<DelieveredOrders />} />
-            <Route path='/adminpanel/undelivered' element={<UndeliveredOrders />} />
             <Route path='/search' element={<Search />} />
             <Route path='/seasonal' element={<Seasonal />} />
             <Route path='/contact' element={<Contact />} />

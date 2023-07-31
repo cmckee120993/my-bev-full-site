@@ -48,13 +48,13 @@ const typeDefs = gql`
   type Query {
     orders: [Order]
     order(_id: ID!): Order
-    orderSearch(phoneNumber: String, _id: ID, orderOwner: String, orderStatus: Boolean): [Order]
-    orderSearchPhone(phoneNumber: String): [Order]
+    orderSearch(phoneNumber: String, _id: ID, orderOwner: String, orderStatus: String): [Order]
     user: User
     trueUserOrders: [Order]
     falseUserOrders: [Order]
     orderStatusFalse: [Order]
     orderStatusTrue: [Order]
+    userOrderSearch(orderStatus: Boolean): [Order]
   }
 
   type Mutation {

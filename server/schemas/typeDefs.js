@@ -50,10 +50,6 @@ const typeDefs = gql`
     order(_id: ID!): Order
     orderSearch(phoneNumber: String, _id: ID, orderOwner: String, orderStatus: String): [Order]
     user: User
-    trueUserOrders: [Order]
-    falseUserOrders: [Order]
-    orderStatusFalse: [Order]
-    orderStatusTrue: [Order]
     userOrderSearch(orderStatus: Boolean): [Order]
   }
 

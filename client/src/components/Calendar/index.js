@@ -3,10 +3,6 @@ import './style.css';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
- 
-// CSS Modules, react-datepicker-cssmodules.css// 
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 
 const Calendar = () => {
 

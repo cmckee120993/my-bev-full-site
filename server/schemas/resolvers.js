@@ -34,33 +34,12 @@ const resolvers = {
 				return await Order.find({ orderStatus: orderStatus })
 			}
 		},
-
-		orderStatusFalse: async () => {
-				return Order.find({orderStatus: false});
-			},
-
-		orderStatusTrue: async () => {
-			return Order.find({orderStatus: true});
-		},
+		
 		user: async (parent, args, context) => {
 			if (context.user) {
 				const user = await User.findById({_id: context.user._id})
 				.populate('orders');
 				return user;
-			}
-			throw new AuthenticationError('Not logged in');
-		},
-
-		trueUserOrders: async (parent, args, context) => {
-			if (context.user) {
-				return Order.find({orderStatus: true});
-			}
-			throw new AuthenticationError('Not logged in');
-		},
-
-		falseUserOrders: async (parent, args, context) => {
-			if (context.user) {
-				return Order.find({orderStatus: false});
 			}
 			throw new AuthenticationError('Not logged in');
 		},

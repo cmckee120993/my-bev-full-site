@@ -27,7 +27,6 @@ if(searchData) {
 
 
  function onlyLetters(str) {
-    console.log(str);
     var letters = /^[A-Za-z]+$/;
     var numbers = /^[0-9]+$/;
     var numbAndLet = /^[A-Za-z0-9]+$/;
@@ -42,16 +41,12 @@ if(searchData) {
     
     
     function buttons(str) {
-        console.log(str);
         if (str === 'undelivered') {
-        console.log('undelivered')
         searchOrders({ variables: {orderStatus: "false"}});
     } else if (str === 'delivered') {
-        console.log('delivered')
         searchOrders({ variables: {orderStatus: "true"}});
     }
     else if (str === 'all-orders') {
-        console.log('delivered')
         window.location.reload();
     }
  };
@@ -59,13 +54,11 @@ if(searchData) {
 function searchQuery() {
     let searchInput = document.querySelector('.order-search-input').value;
     onlyLetters(searchInput.trim());
-    console.log(searchInput);
 };
 
 const buttonSearch = (event) => {
     let catButton = event.target;
     let category = catButton.getAttribute('id');
-    console.log(category);
     buttons(category);
 }
 

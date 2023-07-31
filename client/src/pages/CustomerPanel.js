@@ -153,7 +153,14 @@ function CustomerPanel() {
                 alt="Beverage Express Six Pack Logo"
                 />
             </div>
-        
+            
+            {user ? (
+                <>
+                    <h3 className="title"> Order History for {user.firstName} {user.lastName}</h3>
+                    <h3 className='order-history-email'>{user.email}</h3>
+                </>
+                ): null}
+
         <h3 className='title'>Update Information</h3>
         <form className='update-form' onSubmit={handleFormSubmit}>
             <div className='update-form-div'>
@@ -193,14 +200,6 @@ function CustomerPanel() {
             </div>
         </form>
 
-        {user ? (
-                <>
-                    <h3 className="title"> Order History for {user.firstName} {user.lastName}</h3>
-                    <h3 className='order-history-email'>{user.email}</h3>
-                </>
-                ): null}
-
-                
             <div className='checkbox-div'>
                 <button className='button cat-button' id='delivered' name='status' value='delivered' onClick={buttonSearch}>Delivered Orders</button>
                 <button className='button cat-button' id='undelivered' name='status' value='undelivered' onClick={buttonSearch}>Undelivered Orders</button>

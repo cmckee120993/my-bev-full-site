@@ -12,7 +12,6 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 // Imports from components
 import CartItem from '../CartItem';
 import Calendar from '../Calendar';
-// import AutoComplete from '../AddressFormComp';
 
 // Import styles and images
 import './style.css';

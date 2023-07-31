@@ -2,7 +2,6 @@ import React from 'react'
 import Cart from '../Cart';
 
 // styling and images
-import './style.css'
 import './style.css';
 import headerImagePhone from '../../assets/images/bev-exp-header-phone.webp';
 import headerImage from '../../assets/images/bev-exp-header.webp';

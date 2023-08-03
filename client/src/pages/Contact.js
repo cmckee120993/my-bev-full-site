@@ -42,14 +42,14 @@ function Contact() {
             {/* contact form */}
             <form className="contact-form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
-                <input id="name" type="text" name="name" />
+                <input placeholder='First and Last Name' className='input' id="name" type="text" name="name" />
                 
                 <label htmlFor="email">Email Address</label>
-                <input id="email" type="email" name="email" />
+                <input placeholder='email@email.com' className='input' id="email" type="email" name="email" />
                 <ValidationError prefix="Email" field="email" errors={state.errors} />
                 
                 <label htmlFor="message">Your Message</label>
-                <textarea id="message" name="message" />
+                <textarea placeholder='Type your message here' className='input' id="message" name="message" />
                 <ValidationError
                     prefix="Message"
                     field="message"

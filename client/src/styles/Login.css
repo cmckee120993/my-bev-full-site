@@ -1,7 +1,14 @@
-.login-form, .login-form div, .login-label, .login-label-email, .login-input {
+.login-form, .login-form div, .login-label, .login-label-email {
     background: none;
 }
 
+.login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 800px;
+    margin: auto;
+}
 
 .signup-link-div {
     background: none;
@@ -17,25 +24,55 @@
     color: var(--primary);
 }
 
-.login-label {
-    margin-right: 20px;
-}
-
-.login-label-email {
-margin-right: 60px;
-}
-
-.login-form div {
+.login-form-div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 10px;
 }
 
 .login-input {
-    background: var(--primary);
-    color: black;
-    font-family: 'Gloria Hallelujah', arial;
-    font-size: 15px;
-    width: 50%;
-    border-radius: 20px;
+   width: 560px;
+   font-size: 25px;
+}
+
+.login-submit {
+    margin-top: 15px;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.button-div-login {
+    display: flex;
+    justify-content: right;
+}
+
+@media only screen and (max-width: 800px) {
+    .login-form {
+        width: 500px;
+    }
+    .login-input {
+        width: 325px;
+        font-size: 22px;
+    }
+    .login-label, .login-label-email {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .login-form {
+        width: 300px;
+    }
+    .login-input {
+        width: 150px;
+        font-size: 18px;
+        height: 30px;
+    }
+    .login-label, .login-label-email {
+        font-size: 18px;
+    }
+    .login-submit {
+        font-size: 20px;
+        padding: 5px;
+    }
 }

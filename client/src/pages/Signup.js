@@ -46,10 +46,10 @@ function Signup(props) {
                 />
             </div>
         <form className='signup-form' onSubmit={handleFormSubmit}>
-            <div>
+            <div className='signup-form-div'>
                 <label className='signup-label' htmlFor="firstName">First Name:</label>
                 <input
-                    className='signup-input'
+                    className='input signup-input'
                     placeholder="First"
                     name="firstName"
                     type="firstName"
@@ -57,10 +57,10 @@ function Signup(props) {
                     onChange={handleChange}
                     />
             </div>
-            <div>
+            <div className='signup-form-div'>
                 <label className='signup-label' htmlFor="lastName">Last Name:</label>
                 <input
-                    className='signup-input'
+                    className='input signup-input'
                     placeholder="Last"
                     name="lastName"
                     type="lastName"
@@ -68,10 +68,10 @@ function Signup(props) {
                     onChange={handleChange}
                 />
             </div>
-            <div>
+            <div className='signup-form-div'>
                 <label className='signup-label-email' htmlFor="email">Email:</label>
                 <input 
-                    className='signup-input'
+                    className='input signup-input'
                     placeholder="youremail@example.com"
                     name="email"
                     type="email"
@@ -79,10 +79,10 @@ function Signup(props) {
                     onChange={handleChange}
                     />
             </div>
-            <div>
+            <div className='signup-form-div'>
                 <label className='signup-label-password' htmlFor="pwd">Password:</label>
                 <input 
-                    className='signup-input'
+                    className='input signup-input'
                     placeholder="*****"
                     name="password"
                     type="password"
@@ -90,11 +90,11 @@ function Signup(props) {
                     onChange={handleChange}
                     />
             </div>
-            <div>
-                <button className='button' type="submit">Submit</button>
+            <div className='button-div-signup'>
+                <button className='button signup-submit' type="submit">Submit</button>
             </div>
         <div className="login-link-div">
-            <Link className='link' to="/login">Already have an account? Login</Link>
+            <Link className='link signup-link' to="/login">Already have an account? Login</Link>
         </div>
 
         </form>

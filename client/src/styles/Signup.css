@@ -1,4 +1,4 @@
-.signup-form, .signup-form div, .signup-label, .signup-input, .signup-label-email, .signup-label-password {
+.signup-form, .signup-form div, .signup-label, .signup-label-email, .signup-label-password {
     background: none;
 }
 
@@ -11,39 +11,74 @@
     font-size: 20px;
 }
 
+.signup-link {
+    text-align: center;
+}
+
 .signup-label, .signup-label-email, .signup-label-password {
     font-family: 'Gloria Hallelujah', arial;
     font-size: 25px;
     color: var(--primary);
 }
 
-.signup-label {
-    margin-right: 20px;
-}
-
-.signup-label-email {
-margin-right: 90px;
-}
-
-.signup-label-password {
-    margin-right: 50px;
-}
-
-.signup-form div {
+.signup-form-div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 10px;
 }
 
 .signup-input {
-    background: var(--primary);
-    color: black;
-    font-family: 'Gloria Hallelujah', arial;
-    font-size: 15px;
-    width: 50%;
-    border-radius: 20px;
+    width: 560px;
+    font-size: 25px;
 }
 
 .signup-form {
-    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 800px;
+    margin: auto;
+}
+
+.signup-submit {
+    margin-top: 15px;
+    font-size: 30px;
+    margin-right: 0px;
+    padding: 10px;
+}
+
+.button-div-signup {
+    display: flex;
+    justify-content: right;
+}
+
+@media only screen and (max-width: 800px) {
+    .signup-form {
+        width: 500px;
+    }
+    .signup-input {
+        width: 325px;
+        font-size: 22px;
+    }
+    .signup-label, .signup-label-email, .signup-label-password {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .signup-form {
+        width: 300px;
+    }
+    .signup-input {
+        width: 150px;
+        font-size: 18px;
+        height: 30px;
+    }
+    .signup-label, .signup-label-email, .signup-label-password {
+        font-size: 18px;
+    }
+    .signup-submit {
+        font-size: 20px;
+        padding: 5px;
+    }
 }

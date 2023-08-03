@@ -47,20 +47,20 @@ function Login(props) {
         
 
         <form className="login-form" onSubmit={handleFormSubmit}>
-            <div>
+            <div className='login-form-div'>
                 <label className="login-label-email" htmlFor="email">Email:</label>
                 <input 
-                className="login-input"
+                className="input login-input"
                 placeholder="youremail@example.com"
                 name="email"
                 type="email"
                 id="email"
                 onChange={handleChange}/>
             </div>
-            <div>
+            <div className='login-form-div'>
                 <label className="login-label" htmlFor="pwd">Password:</label>
                 <input 
-                className="login-input"
+                className="input login-input"
                 placeholder="*****"
                 name="password"
                 type="password"
@@ -73,8 +73,8 @@ function Login(props) {
                     <p>The provided credentials are incorrect...</p>
                 </div>
             ) : null}
-            <div className='login-button-div'>
-                <button className="button"type="submit">Submit</button>
+            <div className='button-div-login'>
+                <button className="button login-submit"type="submit">Submit</button>
             </div>
         </form>
         <div className="signup-link-div">

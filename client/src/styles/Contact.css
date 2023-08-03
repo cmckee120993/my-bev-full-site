@@ -37,6 +37,7 @@
     width: 40%;
     background: none;
     background-image: radial-gradient(#dee1e4, #aaa9ad);
+    margin-bottom: 40px;
 }
 
 .success-message {
@@ -54,5 +55,12 @@
     .contact-submit {
         font-size: 40px;
         width: 25%;
+    }
+}
+
+@media only screen and (min-width: 1150px) {
+    .contact-form {
+        width: 60%;
+        margin: auto;
     }
 }

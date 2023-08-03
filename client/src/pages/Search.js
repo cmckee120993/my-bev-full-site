@@ -184,7 +184,7 @@ function productCard(item) {
             <div className="search-div">
                 <input
                 type="text"
-                className="search-words"
+                className="input search-words"
                 placeholder="Search for our products here..."
                 onKeyDown={keyDown}
                 >

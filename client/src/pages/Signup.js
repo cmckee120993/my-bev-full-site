@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
-import '../styles/Signup.css';
+import '../styles/AccountForm.css';
 
 import sixPack from  '../assets/images/bx-six-pack.webp';
 
@@ -45,11 +45,11 @@ function Signup(props) {
                 alt="Beverage Express Six Pack Logo"
                 />
             </div>
-        <form className='signup-form' onSubmit={handleFormSubmit}>
-            <div className='signup-form-div'>
-                <label className='signup-label' htmlFor="firstName">First Name:</label>
+        <form className='account-form' onSubmit={handleFormSubmit}>
+            <div className='account-form-div'>
+                <label className='account-label' htmlFor="firstName">First Name:</label>
                 <input
-                    className='input signup-input'
+                    className='input account-input'
                     placeholder="First"
                     name="firstName"
                     type="firstName"
@@ -57,10 +57,10 @@ function Signup(props) {
                     onChange={handleChange}
                     />
             </div>
-            <div className='signup-form-div'>
-                <label className='signup-label' htmlFor="lastName">Last Name:</label>
+            <div className='account-form-div'>
+                <label className='account-label' htmlFor="lastName">Last Name:</label>
                 <input
-                    className='input signup-input'
+                    className='input account-input'
                     placeholder="Last"
                     name="lastName"
                     type="lastName"
@@ -68,10 +68,10 @@ function Signup(props) {
                     onChange={handleChange}
                 />
             </div>
-            <div className='signup-form-div'>
-                <label className='signup-label-email' htmlFor="email">Email:</label>
+            <div className='account-form-div'>
+                <label className='account-label-email' htmlFor="email">Email:</label>
                 <input 
-                    className='input signup-input'
+                    className='input account-input'
                     placeholder="youremail@example.com"
                     name="email"
                     type="email"
@@ -79,10 +79,10 @@ function Signup(props) {
                     onChange={handleChange}
                     />
             </div>
-            <div className='signup-form-div'>
-                <label className='signup-label-password' htmlFor="pwd">Password:</label>
+            <div className='account-form-div'>
+                <label className='account-label-password' htmlFor="pwd">Password:</label>
                 <input 
-                    className='input signup-input'
+                    className='input account-input'
                     placeholder="*****"
                     name="password"
                     type="password"
@@ -90,11 +90,11 @@ function Signup(props) {
                     onChange={handleChange}
                     />
             </div>
-            <div className='button-div-signup'>
-                <button className='button signup-submit' type="submit">Submit</button>
+            <div className='button-div-account'>
+                <button className='button account-submit' type="submit">Submit</button>
             </div>
-        <div className="login-link-div">
-            <Link className='link signup-link' to="/login">Already have an account? Login</Link>
+        <div className="account-link-div">
+            <Link className='link account-link' to="/login">Already have an account? Login</Link>
         </div>
 
         </form>

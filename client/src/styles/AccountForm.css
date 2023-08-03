@@ -1,38 +1,8 @@
-.signup-form, .signup-form div, .signup-label, .signup-label-email, .signup-label-password {
+.account-form, .account-link-div, .account-form div, .account-label-password, .account-label, .account-label-email {
     background: none;
 }
 
-.login-link-div {
-    margin-top: 50px;
-    background: none;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.signup-link {
-    text-align: center;
-}
-
-.signup-label, .signup-label-email, .signup-label-password {
-    font-family: 'Gloria Hallelujah', arial;
-    font-size: 25px;
-    color: var(--primary);
-}
-
-.signup-form-div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.signup-input {
-    width: 560px;
-    font-size: 25px;
-}
-
-.signup-form {
+.account-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -40,44 +10,71 @@
     margin: auto;
 }
 
-.signup-submit {
+.account-link-div {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+    font-size: 20px;
+}
+
+.account-link {
+    text-align: center;
+}
+
+.account-label, .account-label-email, .account-label-password {
+    font-family: 'Gloria Hallelujah', arial;
+    font-size: 25px;
+    color: var(--primary);
+}
+
+.account-form-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.account-input {
+   width: 560px;
+   font-size: 25px;
+}
+
+.account-submit {
     margin-top: 15px;
     font-size: 30px;
-    margin-right: 0px;
     padding: 10px;
 }
 
-.button-div-signup {
+.button-div-account {
     display: flex;
     justify-content: right;
 }
 
 @media only screen and (max-width: 800px) {
-    .signup-form {
+    .account-form {
         width: 500px;
     }
-    .signup-input {
+    .account-input {
         width: 325px;
         font-size: 22px;
     }
-    .signup-label, .signup-label-email, .signup-label-password {
+    .account-label, .account-label-email, .account-label-password {
         font-size: 22px;
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .signup-form {
+    .account-form {
         width: 300px;
     }
-    .signup-input {
+    .account-input {
         width: 150px;
         font-size: 18px;
         height: 30px;
     }
-    .signup-label, .signup-label-email, .signup-label-password {
+    .account-label, .account-label-email, .account-label-password {
         font-size: 18px;
     }
-    .signup-submit {
+    .account-submit {
         font-size: 20px;
         padding: 5px;
     }

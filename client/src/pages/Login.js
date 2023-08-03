@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-import '../styles/Login.css';
+import '../styles/AccountForm.css';
 import sixPack from  '../assets/images/bx-six-pack.webp';
 
 function Login(props) {
@@ -46,21 +46,21 @@ function Login(props) {
             </div>
         
 
-        <form className="login-form" onSubmit={handleFormSubmit}>
-            <div className='login-form-div'>
-                <label className="login-label-email" htmlFor="email">Email:</label>
+        <form className="account-form" onSubmit={handleFormSubmit}>
+            <div className='account-form-div'>
+                <label className="account-label-email" htmlFor="email">Email:</label>
                 <input 
-                className="input login-input"
+                className="input account-input"
                 placeholder="youremail@example.com"
                 name="email"
                 type="email"
                 id="email"
                 onChange={handleChange}/>
             </div>
-            <div className='login-form-div'>
-                <label className="login-label" htmlFor="pwd">Password:</label>
+            <div className='account-form-div'>
+                <label className="account-label" htmlFor="pwd">Password:</label>
                 <input 
-                className="input login-input"
+                className="input account-input"
                 placeholder="*****"
                 name="password"
                 type="password"
@@ -73,12 +73,12 @@ function Login(props) {
                     <p>The provided credentials are incorrect...</p>
                 </div>
             ) : null}
-            <div className='button-div-login'>
-                <button className="button login-submit"type="submit">Submit</button>
+            <div className='button-div-account'>
+                <button className="button account-submit"type="submit">Submit</button>
             </div>
         </form>
-        <div className="signup-link-div">
-            <Link className="link" to="/signup"> No account? Signup now!</Link>
+        <div className="account-link-div">
+            <Link className="link account-link" to="/signup"> No account? Signup now!</Link>
         </div>
         </>
     );
